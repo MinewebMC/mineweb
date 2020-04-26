@@ -27,7 +27,7 @@ client.on('map_chunk', function(packet) {
   var chunk = new Chunk();
   chunk.load(packet.chunkData, packet.bitMap);
   // noa.world._chunkIDsToRequest.push("0|0|0")
-  // console.log(chunk);
+  console.log(chunk);
 });
 
 client.on('login', function() {
