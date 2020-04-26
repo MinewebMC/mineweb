@@ -7,7 +7,7 @@ app.get("/", (request, response) => {
   response.sendFile(__dirname + "/index.html");
 });
 
-const listener = app.listen(process.env.PORT, () => {
+const listener = app.listen(8080, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
 
