@@ -1,4 +1,4 @@
-/* global client, noa, Engine, opts, Mesh*/
+/* global client, noa, Engine, opts, Mesh, Chunk*/
 
 
 client.on('login', function() {
@@ -65,4 +65,12 @@ client.on('login', function() {
           if (noa.camera.zoomDistance > 10) noa.camera.zoomDistance = 10
       }
   })
+});
+
+
+client.on('map_chunk', function(packet) {
+  var chunk = new Chunk();
+  chunk.load(packet.chunkData, packet.bitMap);
+  // noa.world._chunkIDsToRequest.push("0|0|0")
+  console.log(chunk);
 });
