@@ -24,7 +24,7 @@ var client = mc.createClient({
 client.on('map_chunk', function(packet) {
   var chunk = new Chunk();
   chunk.load(packet.chunkData, packet.bitMap);
-  console.log(chunk);
+  // console.log(chunk);
 });
 
 client.on('login', function() {
@@ -46,6 +46,7 @@ client.on('login', function() {
   }
 
   noa.world.on('worldDataNeeded', function (id, data, x, y, z) {
+    console.log("needed");
       for (var i = 0; i < data.shape[0]; i++) {
           for (var j = 0; j < data.shape[1]; j++) {
               for (var k = 0; k < data.shape[2]; k++) {
