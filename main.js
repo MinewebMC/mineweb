@@ -21,10 +21,11 @@ window.bot = mineflayer.createBot({
   version: "1.12.2"                 // false corresponds to auto version detection (that's the default), put for example "1.8.8" if you need a specific version
 });
 bot.on('chat', function(username, message) {
-  if (username === bot.username) return;
-  bot.chat(message);
+  // if (username === bot.username) return;
+  
 });
 bot.on('spawn', function() {
+  bot.chat("/tp heath 0 200 0"); // tp to the right place
   var noa = new Engine(opts);
 
   var textureURL = null // replace that with a filename to specify textures
@@ -75,6 +76,7 @@ bot.on('spawn', function() {
   })
   noa.on('tick', function (dt) {
     bot.setControlState('forward', noa.inputs.state.forward);
+    bot.setControlState('jump', noa.inputs.state.jump);
       var scroll = noa.inputs.state.scrolly
       if (scroll !== 0) {
           noa.camera.zoomDistance += (scroll > 0) ? 1 : -1
