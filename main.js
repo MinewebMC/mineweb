@@ -2,6 +2,7 @@ import Engine from 'noa-engine';
 import { Mesh } from '@babylonjs/core/Meshes/mesh';
 var mc = require('minecraft-protocol');
 var { Vec3 } = require('vec3');
+const Chunk = require('prismarine-chunk')("1.12.2");
 
 // Options for noa engine
 var opts = {
@@ -14,11 +15,16 @@ var opts = {
 }
 
 var client = mc.createClient({
-  host: "91.203.193.189", // optional
-  port: 25565,       // optional
-  username: "mineweb" + Math.floor(Math.random() * 1000), // @example.com", // email and password are required only for
-  // password: "12345678",          // online-mode=true servers
-  version: "1.12.2"                 // false corresponds to auto version detection (that's the default), put for example "1.8.8" if you need a specific version
+  host: "91.203.193.189",
+  port: 25565,
+  username: "mineweb" + Math.floor(Math.random() * 1000),
+  version: "1.12.2"
+});
+
+client.on('map_chunk', function(packet) {
+  var chunk = new Chunk();
+  chunk.load(packet.chunkData, packet.bitMap);
+  console.log(chunk);
 });
 
 client.on('login', function() {
