@@ -9,7 +9,7 @@ var opts = {
     debug: true,
     showFPS: true,
     chunkSize: 16,
-    chunkAddDistance: 1.5,
+    chunkAddDistance: 0, // So I can handle adding chunks myself
     chunkRemoveDistance: 300.5,
     tickRate: 50, // ms per tick - not ticks per second
 }
@@ -46,7 +46,8 @@ client.on('login', function() {
   }
 
   noa.world.on('worldDataNeeded', function (id, data, x, y, z) {
-    console.log("needed");
+    console.log("needed: " + id);
+    console.log(data);
       for (var i = 0; i < data.shape[0]; i++) {
           for (var j = 0; j < data.shape[1]; j++) {
               for (var k = 0; k < data.shape[2]; k++) {
@@ -55,7 +56,7 @@ client.on('login', function() {
               }
           }
       }
-      noa.world.setChunkData(id, data)
+      // noa.world.setChunkData(id, data)
   })
 
   var player = noa.playerEntity
