@@ -48,14 +48,15 @@ client.on('login', function() {
   noa.world.on('worldDataNeeded', function (id, data, x, y, z) {
     console.log("needed: " + id);
     console.log(data);
-      for (var i = 0; i < data.shape[0]; i++) {
+    noa.world._chunkIDsPending = []; // So noa isn't expecting to recieve chunk data when it never will
+    /*  for (var i = 0; i < data.shape[0]; i++) {
           for (var j = 0; j < data.shape[1]; j++) {
               for (var k = 0; k < data.shape[2]; k++) {
                   var voxelID = getVoxelID(x + i, y + j, z + k)
                   data.set(i, j, k, voxelID)
               }
           }
-      }
+      } */
       // noa.world.setChunkData(id, data)
   })
 
