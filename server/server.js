@@ -7,7 +7,7 @@ var request = require('request');
 var app = express();
 
 app.use(netApi());
-app.use(express.static('../'))
+app.use(express.static('./'))
 
 app.use(bodyParser.json({limit: "100kb"}));
 
