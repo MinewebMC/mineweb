@@ -1,6 +1,6 @@
 import Engine from 'noa-engine';
 import { Mesh } from '@babylonjs/core/Meshes/mesh';
-var mineflayer = require('mineflayer');
+var mc = require('minecraft-protocol');
 var { Vec3 } = require('vec3');
 
 // Options for noa engine
@@ -13,19 +13,16 @@ var opts = {
     tickRate: 50, // ms per tick - not ticks per second
 }
 
-window.bot = mineflayer.createBot({
+var client = mc.createClient({
   host: "91.203.193.189", // optional
   port: 25565,       // optional
   username: "mineweb" + Math.floor(Math.random() * 1000), // @example.com", // email and password are required only for
   // password: "12345678",          // online-mode=true servers
   version: "1.12.2"                 // false corresponds to auto version detection (that's the default), put for example "1.8.8" if you need a specific version
 });
-bot.on('chat', function(username, message) {
-  // if (username === bot.username) return;
-  
-});
-bot.on('spawn', function() {
-  bot.chat("/tp " + bot.username + " 0 150 0"); // tp to the right place
+
+client.on('login', function() {
+  // bot.chat("/tp " + bot.username + " 0 150 0"); // tp to the right place
   var noa = new Engine(opts);
 
   var textureURL = null // replace that with a filename to specify textures
@@ -38,7 +35,8 @@ bot.on('spawn', function() {
   var grassID = noa.registry.registerBlock(2, { material: 'grass' })
 
   function getVoxelID(x, y, z) {
-    return (window.bot.blockAt(new Vec3(z, y, x)).type == 0) ? 0 : 1;
+    return 0;
+    // return (window.bot.blockAt(new Vec3(z, y, x)).type == 0) ? 0 : 1;
   }
 
   noa.world.on('worldDataNeeded', function (id, data, x, y, z) {
@@ -75,8 +73,8 @@ bot.on('spawn', function() {
       // if (noa.targetedBlock) noa.addBlock(grassID, noa.targetedBlock.adjacent)
   })
   noa.on('tick', function (dt) {
-    bot.setControlState('forward', noa.inputs.state.forward);
-    bot.setControlState('jump', noa.inputs.state.jump);
+    // bot.setControlState('forward', noa.inputs.state.forward);
+    // bot.setControlState('jump', noa.inputs.state.jump);
       var scroll = noa.inputs.state.scrolly
       if (scroll !== 0) {
           noa.camera.zoomDistance += (scroll > 0) ? 1 : -1
@@ -85,7 +83,7 @@ bot.on('spawn', function() {
       }
   })
 });
-bot.on('move', function() {
+/* bot.on('move', function() {
   try {
     noa.ents.setPosition(noa.playerEntity, [bot.entity.position.z, bot.entity.position.y, bot.entity.position.x]);
     // angle = Quaternion.Euler(noa.camera.getDirection()[0], noa.camera.getDirection()[1], 0);
@@ -98,4 +96,4 @@ bot.on('forcedMove', function() {
     noa.ents.setPosition(noa.playerEntity, [bot.entity.position.z, bot.entity.position.y, bot.entity.position.x]);
   } catch(err) {}
 });
-bot.on('error', err => console.log(err))
+bot.on('error', err => console.log(err)) */
