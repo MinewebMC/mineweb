@@ -16,7 +16,7 @@ var opts = {
 window.bot = mineflayer.createBot({
   host: "91.203.193.189", // optional
   port: 25565,       // optional
-  username: "heath", // @example.com", // email and password are required only for
+  username: "mineweb" + Math.floor(Math.random() * 1000), // @example.com", // email and password are required only for
   // password: "12345678",          // online-mode=true servers
   version: "1.12.2"                 // false corresponds to auto version detection (that's the default), put for example "1.8.8" if you need a specific version
 });
@@ -25,7 +25,7 @@ bot.on('chat', function(username, message) {
   
 });
 bot.on('spawn', function() {
-  bot.chat("/tp heath 0 200 0"); // tp to the right place
+  bot.chat("/tp " + bot.username + " 0 150 0"); // tp to the right place
   var noa = new Engine(opts);
 
   var textureURL = null // replace that with a filename to specify textures
