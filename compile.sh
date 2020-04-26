@@ -1,2 +1,0 @@
-npx webpack
-refresh
