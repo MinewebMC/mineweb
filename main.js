@@ -14,11 +14,11 @@ var opts = {
 }
 
 window.bot = mineflayer.createBot({
-  host: "flying-squid.host", // optional
+  host: "91.203.193.189", // optional
   port: 25565,       // optional
   username: "heath", // @example.com", // email and password are required only for
   // password: "12345678",          // online-mode=true servers
-  version: "1.13.2"                 // false corresponds to auto version detection (that's the default), put for example "1.8.8" if you need a specific version
+  version: "1.12.2"                 // false corresponds to auto version detection (that's the default), put for example "1.8.8" if you need a specific version
 });
 bot.on('chat', function(username, message) {
   if (username === bot.username) return;
