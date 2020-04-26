@@ -4,6 +4,8 @@ var mc = require('minecraft-protocol');
 var { Vec3 } = require('vec3');
 const Chunk = require('prismarine-chunk')("1.12.2");
 
+var chunksToLoad = {}; // Not used yet - Chunks to load into noa
+
 // Options for noa engine
 var opts = {
     debug: true,
@@ -24,6 +26,7 @@ var client = mc.createClient({
 client.on('map_chunk', function(packet) {
   var chunk = new Chunk();
   chunk.load(packet.chunkData, packet.bitMap);
+  // noa.world._chunkIDsToRequest.push("0|0|0")
   // console.log(chunk);
 });
 
