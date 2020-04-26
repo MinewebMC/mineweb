@@ -14,7 +14,7 @@ var opts = {
 }
 
 window.bot = mineflayer.createBot({
-  host: "localhost", // optional
+  host: "flying-squid.host", // optional
   port: 25565,       // optional
   username: "heath", // @example.com", // email and password are required only for
   // password: "12345678",          // online-mode=true servers
