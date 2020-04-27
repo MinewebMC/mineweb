@@ -1,6 +1,7 @@
 import Engine from 'noa-engine';
 import { registerTextures } from './textures.js';
 import { Mesh } from '@babylonjs/core/Meshes/mesh';
+var Vec3 = require('vec3').Vec3;
 
 //already imported by setup.js, is a global so we inlude it here VV
 /* global Engine, Mesh*/
@@ -21,7 +22,20 @@ export function startNoa(noaOpts) {
   noa.world.on('worldDataNeeded', function (id, data, x, y, z) {
     console.log("needed: " + id);
     console.log(data);
-    noa.world._chunkIDsPending = []; // So noa isn't expecting to recieve chunk data when it never will
+    if (!chunksToLoad["${x}|${y}|${z}"]) { // If it isn't a chunk that needs to be loaded
+      delete noa.world._chunkIDsPending["${x}|${y}|${z}"];
+    } else {
+      for (var i = 0; i < data.shape[0]; i++) {
+        for (var j = 0; j < data.shape[1]; j++) {
+          for (var k = 0; k < data.shape[2]; k++) {
+            var voxelID = chunksToLoad["${x}|${y}|${z}"].getBlock(new Vec3(i, y + j, k)).type == 0 ? 0 : 1;
+            data.set(i, j, k, voxelID);
+          }
+        }
+      }
+      noa.world.setChunkData(id, data);
+    }
+    // noa.world._chunkIDsPending = []; // So noa isn't expecting to recieve chunk data when it never will
     /*  for (var i = 0; i < data.shape[0]; i++) {
           for (var j = 0; j < data.shape[1]; j++) {
               for (var k = 0; k < data.shape[2]; k++) {
