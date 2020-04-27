@@ -25,13 +25,14 @@ export function setup() {
   console.log("Starting with username: " + username);
   var clientOpts = {
     host: "91.203.193.189",
+    //host: 'mc.flying-squid.host',
     port: 25565,
     username: username,
     version: "1.12.2"
   };
   // DONT LOOK
-  const dns = require('dns')
-  dns.resolveSrv('_minecraft._tcp.beanes.wtf', undefined)
+  // const dns = require('dns')
+  // dns.resolveSrv('_minecraft._tcp.beanes.wtf', undefined)
   // DONT LOOK
   login(clientOpts, noaOpts);
 }
