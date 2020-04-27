@@ -4,9 +4,13 @@ const mcData = require("minecraft-data")("1.12.2");
 
 export function registerTextures(noa) {
   for (var i = 1; i < 256; i++) {
-    var textureURL = data.filter(function(block) {return block.name == mcData.blocks[0].name})[0].texture // replace that with a filename to specify textures
-    console.log(textureURL)
-    noa.registry.registerMaterial(i.toString(), [Math.random(), Math.random(), Math.random()], textureURL) // Random colours
+    try {
+      var textureURL = data.filter(function(block) {return block.name == mcData.blocks[i].name})[0].texture // replace that with a filename to specify textures
+    } catch(err) {
+      var textureURL = null;
+    }
+    console.log("TexURL:", textureURL)
+    noa.registry.registerMaterial(i.toString(), [Math.random(), Math.random(), Math.random()], "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.12.2/assets/minecraft/textures/" + textureURL + ".png") // Random colours
     noa.registry.registerBlock(i, { material: i.toString() })
   }
   // block types and their material names
