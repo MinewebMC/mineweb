@@ -2,6 +2,9 @@
 
 
 client.on('login', function() {
+  
+  
+  
   // bot.chat("/tp " + bot.username + " 0 150 0"); // tp to the right place
   var noa = new Engine(opts);
 
@@ -49,12 +52,7 @@ client.on('login', function() {
       mesh: mesh,
       offset: [0, h / 2, 0],
   })
-  noa.inputs.down.on('fire', function () {
-      // if (noa.targetedBlock) noa.setBlock(0, noa.targetedBlock.position)
-  })
-  noa.inputs.down.on('alt-fire', function () {
-      // if (noa.targetedBlock) noa.addBlock(grassID, noa.targetedBlock.adjacent)
-  })
+  
   noa.on('tick', function (dt) {
     // bot.setControlState('forward', noa.inputs.state.forward);
     // bot.setControlState('jump', noa.inputs.state.jump);
@@ -65,6 +63,13 @@ client.on('login', function() {
           if (noa.camera.zoomDistance > 10) noa.camera.zoomDistance = 10
       }
   })
+  
+  
+  
+  
+  
+  let inputsjs = require("./inputs.js");
+  inputsjs.setup(noa);
 });
 
 
