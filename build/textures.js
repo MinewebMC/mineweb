@@ -15,6 +15,9 @@ export function registerTextures(noa) {
     // } else {
       noa.registry.registerMaterial(i.toString(), [Math.random(), Math.random(), Math.random()], ["https://classic.modded.repl.co/assets/textures/grass.png", "https://classic.modded.repl.co/assets/textures/dirt.png", "https://classic.modded.repl.co/assets/textures/grass_dirt.png"]) // Random colours
     // }
+    mcData.blocks[0].name
+    var textureURL = null // replace that with a filename to specify textures
+    noa.registry.registerMaterial(i.toString(), [Math.random(), Math.random(), Math.random()], textureURL) // Random colours
     noa.registry.registerBlock(i, { material: i.toString() })
   }
   // block types and their material names
