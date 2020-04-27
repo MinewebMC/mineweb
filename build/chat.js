@@ -19,7 +19,17 @@ export function viewChat(msg) {
     
   } else if(messagesList.length<31) {
     
+    //scroll but we do it ourselves bcuz why not
+    messagesList.shift();
+    messagesList.push(msg);
     
+    messagesList.forEach(i => { //escape chars
+      i.replace("<", "&lt");
+      i.replace(">", "&gt");
+      i.replace("&", "&amp");
+    });
+    
+    document.getElementById("chat").innerHTML = messagesList.join("<br>");
     
   } else {
     

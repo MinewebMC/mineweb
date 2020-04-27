@@ -5,7 +5,7 @@ const Chunk = require('prismarine-chunk')("1.12.2");
 
 window.chunksToLoad = {}; // Chunks to load into noa
 
-/* global client, noa, Engine, opts, Mesh, Chunk*/
+/* global client, noa, Engine, opts, Mesh, Chunk, chunksToLoad*/
 
 export function login(clientOpts, noaOpts) {
   window.client = mc.createClient(clientOpts);
@@ -37,6 +37,18 @@ export function login(clientOpts, noaOpts) {
     // console.log(packet);
     // console.log(chunk);
   });
+  
+  
+  client.on('chat', function(packet) {
+  var jsonMsg = JSON.parse(packet.message);
+  if(jsonMsg.translate == 'chat.type.announcement' || jsonMsg.translate == 'chat.type.text') {
+    var username = jsonMsg.with[0].text;
+    var msg = jsonMsg.with[1];
+    viewChat();
+  }
+});
+  
+  
 }
 
 export function updatePosition(x, y, z) {
