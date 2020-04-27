@@ -4,8 +4,8 @@ const mcData = require("minecraft-data")("1.12.2");
 
 export function registerTextures(noa) {
   for (var i = 1; i < 256; i++) {
-    mcData.blocks[0].name
-    var textureURL = null // replace that with a filename to specify textures
+    var textureURL = data.filter(function(block) {return block.name == mcData.blocks[0].name})[0].texture // replace that with a filename to specify textures
+    console.log(textureURL)
     noa.registry.registerMaterial(i.toString(), [Math.random(), Math.random(), Math.random()], textureURL) // Random colours
     noa.registry.registerBlock(i, { material: i.toString() })
   }
