@@ -82,15 +82,16 @@ function getVoxelID(x, y, z) {
   mesh.scaling.x = w
   mesh.scaling.z = w
   mesh.scaling.y = h
-  
-  var moveOpts = {
-    airJumps: 0
-  }
+
 
   noa.entities.addComponent(player, noa.entities.names.mesh, {
       mesh: mesh,
       offset: [0, h / 2, 0],
-  }, moveOpts)
+  })
+  
+  /* noa.entities.addComponent(player, noa.entities.components.movement, {
+    airJumps: 0 // Disable air jumps
+  }); */
   
   noa.ents.getPhysicsBody(noa.playerEntity).friction = 50;
   noa.ents.getPhysicsBody(noa.playerEntity).gravityMultiplier = 4.2;
