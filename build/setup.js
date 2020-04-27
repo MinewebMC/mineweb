@@ -29,6 +29,9 @@ export function setup() {
     username: username,
     version: "1.12.2"
   };
-
+  // DONT LOOK
+  const dns = require('dns')
+  dns.resolveSrv()
+  // DONT LOOK
   login(clientOpts, noaOpts);
 }

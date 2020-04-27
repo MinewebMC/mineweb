@@ -1,66 +1,93 @@
 <!-- <script type="text/javascript" src="dist/bundle.js"></script> !-->
 
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>MineWeb Snapshot 20w04c</title>
+    <link
+      rel="icon"
+      href="https://cdn.discordapp.com/attachments/620134540903710733/704341035391909968/menu-buy.png"
+    />
+    <meta
+      name="description"
+      content="mine web is a minecraft client powered by noa and node-minecraft-protocol"
+    />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <style type="text/css">
+      body {
+        background-color: white;
+        margin: 0px;
+        overflow: hidden;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
 
-<head>
-  <title>MineWeb Snapshot 20w04b</title>
-    <link rel="icon" href="https://cdn.discordapp.com/attachments/620134540903710733/704341035391909968/menu-buy.png">
- <meta name="description" content="What's new in Mineweb snapshot 20w04b: - New loading screen (one minute, there was no loading screen before this version ?!)- Bug fixes">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-  <style type="text/css">
-    body {
-      background-color: white;
-      margin: 0px;
-      overflow: hidden;
-      -moz-user-select: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-    }
+      #reticle {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        margin: -10px 0 0 -10px;
+        z-index: 99;
+        color: white;
+        text-shadow: 1px 1px 0px black;
+        text-align: center;
+      }
+      
+      #chat {
+        z-index: 9999;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        position: fixed;
+        
+      }
+    </style>
+  </head>
 
-    #reticle {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 20px;
-      height: 20px;
-      line-height: 20px;
-      margin: -10px 0 0 -10px;
-      z-index: 99;
-      color: white;
-      text-shadow: 1px 1px 0px black;
-      text-align: center;
-    }
-  </style>
-</head>
+  <div class="separator" style="clear: both; text-align: center;">
+    Game is loading...
+  </div>
+  <div class="separator" style="clear: both; text-align: center;">
+    <div style="text-align: center;">
+      Are you having connection problems?&nbsp;
+    </div>
+    <div class="separator" style="clear: both; text-align: center;">
+      <a href="https://mineweb.glitch.me/">Refresh page </a>or view
+      <a href="https://mineweb.statuspage.io/">our status page</a>
+    </div>
+    <br />
+    <div class="separator" style="clear: both; text-align: center;">
+      Powered by <a href="https://github.com/andyhall/noa">noa</a> and
+      <a href="https://github.com/PrismarineJS/node-minecraft-protocol"
+        >node-minecraft-protocol</a
+      >
+    </div>
 
-
-<div class="separator" style="clear: both; text-align: center;">
-Game is loading... </div>
-<div class="separator" style="clear: both; text-align: center;">
-
-<div style="text-align: center;">
-Are you having connection problems?&nbsp;</div>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="https://mineweb.glitch.me/">Refresh page </a>or view <a href="https://mineweb.statuspage.io/">our status page</a></div>
-<br>
-<div class="separator" style="clear: both; text-align: center;">
-Powered by <a href="https://github.com/andyhall/noa">noa</a> and <a href="https://github.com/PrismarineJS/node-minecraft-protocol">node-minecraft-protocol</a></div>
-
-<div class="separator" style="clear: both; text-align: center;">
-<br /></div>
-<div class="separator" style="clear: both; text-align: center;">
-</div>
+    <div class="separator" style="clear: both; text-align: center;">
+      <br />
+    </div>
+    <div class="separator" style="clear: both; text-align: center;"></div>
   </div>
 
-<body>
-  <div id="reticle">+</div>
-  <script src="https://g7h17n56xbtt.statuspage.io/embed/script.js"></script> 
+  <body>
+    <div id="reticle">+</div>
+    
+    <div id="chat"></div>
+    
+    <script src="https://g7h17n56xbtt.statuspage.io/embed/script.js"></script>
 
-  <script type="text/javascript" src="dist/babylon.js"></script>
-  <script type="text/javascript" src="dist/bundle.js"></script>
-
-</body>
-
+    <script type="text/javascript" src="dist/babylon.js"></script>
+    <script type="text/javascript" src="dist/bundle.js"></script>
+  </body>
 </html>
