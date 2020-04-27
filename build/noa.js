@@ -28,7 +28,11 @@ export function startNoa(noaOpts) {
       for (var i = 0; i < data.shape[0]; i++) {
         for (var j = 0; j < data.shape[1]; j++) {
           for (var k = 0; k < data.shape[2]; k++) {
-            var voxelID = chunksToLoad[`${x}|${y}|${z}`].getBlock(new Vec3(i, y + j, k)).type == 0 ? 0 : 1;
+            var voxelID = chunksToLoad[`${x}|${y}|${z}`].getBlock(new Vec3(i, y + j, k)).name;
+            console.log("ID:", voxelID);
+            if (voxelID > 1) {
+              voxelID = 1;
+            }
             data.set(i, j, k, voxelID);
           }
         }
