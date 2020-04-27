@@ -36,13 +36,13 @@ function getVoxelID(x, y, z) {
       for (var i = 0; i < data.shape[0]; i++) {
         for (var j = 0; j < data.shape[1]; j++) {
           for (var k = 0; k < data.shape[2]; k++) {
-            var voxelID = chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`].getBlock(new Vec3(k, y + j, i)); // x and z are reversed because otherwise it looks wrong
+            var voxelID = chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`].getBlock(new Vec3(k, y + j, i)).type; // x and z are reversed because otherwise it looks wrong
             // console.log("ID:", voxelID);
-            if (voxelID.type == 0) {
+            /* if (voxelID.type == 0) {
               voxelID = 0;
             } else {
               voxelID = 1;
-            }
+            } */
             // var voxelID = getVoxelID(x + i, y + j, z + k)
             data.set(i, j, k, voxelID);
           }
