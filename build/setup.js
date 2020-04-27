@@ -3,7 +3,7 @@ import { Mesh } from '@babylonjs/core/Meshes/mesh';
 var mc = require('minecraft-protocol');
 var { Vec3 } = require('vec3');
 const Chunk = require('prismarine-chunk')("1.12.2");
-var protocol = require("./protocol.js");
+var protocoljs = require("./protocol.js");
 
 var chunksToLoad = {}; // Not used yet - Chunks to load into noa
 
@@ -24,4 +24,4 @@ var clientOpts = {
   version: "1.12.2"
 };
 
-protocol.login(clientOpts);
+protocoljs.login(mc, clientOpts, noaOpts);

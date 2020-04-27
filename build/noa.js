@@ -1,14 +1,15 @@
-exports.satrt = (clientOpts) => {
-  var noa = new Engine(opts);
+import Engine from 'noa-engine';
 
-  var textureURL = null // replace that with a filename to specify textures
-  var brownish = [0.45, 0.36, 0.22]
-  var greenish = [0.1, 0.8, 0.2]
-  noa.registry.registerMaterial('dirt', brownish, textureURL)
-  noa.registry.registerMaterial('grass', greenish, textureURL)
+//already imported by setup.js, is a global so we inlude it here VV
+/* global Engine, Mesh*/
+// Shouldn't this be imported by protocol.js so it can call it when it's logged in?
+//wait hmm
 
-  var dirtID = noa.registry.registerBlock(1, { material: 'dirt' })
-  var grassID = noa.registry.registerBlock(2, { material: 'grass' })
+exports.start = (noaOpts) => {
+  var noa = new Engine(noaOpts);
+
+  var texturejs = require("./textures.js");
+  texturejs.setup(noa);
 
   function getVoxelID(x, y, z) {
     return 0;
@@ -64,3 +65,4 @@ exports.satrt = (clientOpts) => {
   let inputsjs = require("./inputs.js");
   inputsjs.bind(noa);
   inputsjs.setEvents(noa);
+}

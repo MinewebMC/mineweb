@@ -1,13 +1,13 @@
+var noajs = require("./noa.js");
+
 /* global client, noa, Engine, opts, Mesh, Chunk*/
 
-exports.login = (clientOpts) => {
+exports.login = (mc, clientOpts, noaOpts) => {
   var client = mc.createClient(clientOpts);
 
   client.on('login', function() {
 
-
-
-    // bot.chat("/tp " + bot.username + " 0 150 0"); // tp to the right place
+    noajs.start(noaOpts);
 
   });
 

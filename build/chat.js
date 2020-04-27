@@ -1,3 +1,3 @@
-module.exports.setup = (client, noa) => {
+exports.setup = (client, noa) => {
   
 };
