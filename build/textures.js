@@ -1,6 +1,6 @@
 /* global noa*/
 
-exports.setup = () => {
+export function registerTextures(noa) {
   //register material here
   // block materials (just colors for this demo)
   var textureURL = null // replace that with a filename to specify textures

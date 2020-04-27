@@ -1,4 +1,4 @@
-exports.bind = (noa) => {
+export function bind(noa) {
   
   var inputs = require('game-inputs')( noa.container );
   
@@ -34,7 +34,7 @@ exports.bind = (noa) => {
 
 ////////////////////////////////////////////////////////////////////////
 
-exports.setEvents = (noa) => {
+export function setEvents(noa) {
   noa.inputs.down.on('break', function () {
       if (noa.targetedBlock) noa.setBlock(0, noa.targetedBlock.position)
   })

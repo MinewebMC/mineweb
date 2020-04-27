@@ -1,15 +1,16 @@
 import Engine from 'noa-engine';
+import { registerTextures } from './textures.js';
 
 //already imported by setup.js, is a global so we inlude it here VV
 /* global Engine, Mesh*/
 // Shouldn't this be imported by protocol.js so it can call it when it's logged in?
 //wait hmm
 
-exports.start = (noaOpts) => {
+export function startNoa(noaOpts) {
   var noa = new Engine(noaOpts);
 
-  var texturejs = require("./textures.js");
-  texturejs.setup(noa);
+  // var texturejs = require("./textures.js"); Doesn't work with webpack
+  textures.setup(noa);
 
   function getVoxelID(x, y, z) {
     return 0;

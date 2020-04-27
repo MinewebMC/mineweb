@@ -1,8 +1,10 @@
-var noajs = require("./noa.js");
+// var noajs = require("./noa.js"); Doesn't work with webpack
+import noajs from './noa.js';
+var mc = require('minecraft-protocol');
 
 /* global client, noa, Engine, opts, Mesh, Chunk*/
 
-exports.login = (mc, clientOpts, noaOpts) => {
+export function login(clientOpts, noaOpts) {
   var client = mc.createClient(clientOpts);
 
   client.on('login', function() {

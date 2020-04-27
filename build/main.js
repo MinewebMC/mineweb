@@ -1,1 +1,2 @@
-var setup = require("./setup.js");
+import { setup } from './setup.js';
+setup();

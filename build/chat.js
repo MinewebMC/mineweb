@@ -1,3 +1,3 @@
-exports.setup = (client, noa) => {
+export function setup(client, noa) {
   
 };
