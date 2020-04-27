@@ -12,23 +12,29 @@ export function startNoa(noaOpts) {
   var noa = new Engine(noaOpts);
 
   // var texturejs = require("./textures.js"); Doesn't work with webpack
-  registerTextures(noa);
+  // registerTextures(noa); PUT THIS BACK WHEN IT WORKS!
+  var textureURL = null // replace that with a filename to specify textures
+  var brownish = [0.45, 0.36, 0.22]
+  var greenish = [0.1, 0.8, 0.2]
+  noa.registry.registerMaterial('dirt', brownish, textureURL)
+  noa.registry.registerMaterial('grass', greenish, textureURL)
   
   noa.world.maxChunksPendingCreation = 9999;
   
   noa.world.on('worldDataNeeded', function (id, data, x, y, z) {
-    console.log("needed: " + `${x}|${y}|${z}`);
-    // console.log(data);
-    if (!chunksToLoad[`${x}|${y}|${z}`]) { // If it isn't a chunk that needs to be loaded
-      delete noa.world._chunkIDsPending[`${x}|${y}|${z}`];
-      console.log("Chunk not found:");
+    window.setTimeout(function() { // Just testing
+    console.log("needed: " + `${x / 16}|${y / 16}|${z / 16}`, id);
+    console.log(chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`]);
+    if (typeof chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`] == "undefined") { // If it isn't a chunk that needs to be loaded
+      delete noa.world._chunkIDsPending[`${x / 16}|${y / 16}|${z / 16}`];
+      console.log("Chunk not found:", `${x / 16}|${y / 16}|${z / 16}`);
     } else {
       for (var i = 0; i < data.shape[0]; i++) {
         for (var j = 0; j < data.shape[1]; j++) {
           for (var k = 0; k < data.shape[2]; k++) {
-            var voxelID = chunksToLoad[`${x}|${y}|${z}`].getBlock(new Vec3(i, y + j, k));
-            console.log("ID:", voxelID);
-            if (voxelID.name == "air") {
+            var voxelID = chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`].getBlock(new Vec3(i, y + j, k));
+            // console.log("ID:", voxelID);
+            if (voxelID.type == 0) {
               voxelID = 0;
             } else {
               voxelID = 1;
@@ -49,6 +55,7 @@ export function startNoa(noaOpts) {
           }
       } */
       // noa.world.setChunkData(id, data)
+      }, 10000);
   })
 
   var player = noa.playerEntity
