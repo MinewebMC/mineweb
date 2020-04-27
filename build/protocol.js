@@ -13,7 +13,9 @@ export function login(clientOpts, noaOpts) {
   client.on('login', function() {
     startNoa(noaOpts);
   });
-  
+  client.on('block_change', function(packet) {
+    console.log('Block change! ', packet)
+  })
   client.on('position', function(packet) {
     console.log("Server teleported client to", packet);
     noa.ents.setPosition(noa.playerEntity, [packet.z, packet.y, packet.x]); // x and z are reversed because otherwise it looks wrong
@@ -21,6 +23,7 @@ export function login(clientOpts, noaOpts) {
   });
 
   client.on('map_chunk', function(packet) {
+    console.log('hii')
     var chunk = new Chunk();
     chunk.load(packet.chunkData, packet.bitMap);
     for (var y = 0; y < 16; y++) {
@@ -32,9 +35,6 @@ export function login(clientOpts, noaOpts) {
     // console.log(packet);
     // console.log(chunk);
   });
-  client.on('block_place', function(packet) {
-    console.log(packet)
-  })
 }
 
 export function updatePosition(x, y, z) {

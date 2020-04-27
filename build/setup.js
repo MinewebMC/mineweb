@@ -21,11 +21,12 @@ export function setup() {
     tickRate: 50, // ms per tick - not ticks per second
     // See `test` example, or noa docs/source, for more options
 }
-
+  const username = "mineweb" + Math.floor(Math.random() * 1000)
+  console.log('Starting with username: ' + username)
   var clientOpts = {
     host: "91.203.193.189",
     port: 25565,
-    username: "mineweb" + Math.floor(Math.random() * 1000),
+    username: username,
     version: "1.12.2"
   };
 
