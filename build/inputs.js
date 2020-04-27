@@ -35,10 +35,10 @@ module.exports.bind = (noa) => {
 ////////////////////////////////////////////////////////////////////////
 
 module.exports.setEvents = (noa) => {
-  noa.inputs.down.on('fire', function () {
+  noa.inputs.down.on('break', function () {
       // if (noa.targetedBlock) noa.setBlock(0, noa.targetedBlock.position)
   })
-  noa.inputs.down.on('alt-fire', function () {
+  noa.inputs.down.on('place', function () {
       // if (noa.targetedBlock) noa.addBlock(grassID, noa.targetedBlock.adjacent)
   })
 };

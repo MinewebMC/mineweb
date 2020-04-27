@@ -69,7 +69,8 @@ client.on('login', function() {
   
   
   let inputsjs = require("./inputs.js");
-  inputsjs.setup(noa);
+  inputsjs.bind(noa);
+  inputsjs.setEvents(noa);
 });
 
 
