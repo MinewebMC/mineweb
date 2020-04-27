@@ -36,9 +36,9 @@ module.exports.bind = (noa) => {
 
 module.exports.setEvents = (noa) => {
   noa.inputs.down.on('break', function () {
-      // if (noa.targetedBlock) noa.setBlock(0, noa.targetedBlock.position)
+      if (noa.targetedBlock) noa.setBlock(0, noa.targetedBlock.position)
   })
   noa.inputs.down.on('place', function () {
-      // if (noa.targetedBlock) noa.addBlock(grassID, noa.targetedBlock.adjacent)
+      if (noa.targetedBlock) noa.addBlock(grassID, noa.targetedBlock.adjacent)
   })
 };
