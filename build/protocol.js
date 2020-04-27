@@ -15,7 +15,8 @@ export function login(clientOpts, noaOpts) {
   });
   client.on('block_change', function(packet) {
     console.log('Block change! ', packet)
-    noa.setBlock(packet.id, packet.location.z, packet.location.y, packet.location.x) // X, Z switched
+    // noa.world.setBlockID(packet.id, packet.location.z, packet.location.y, packet.location.x) // X, Z switched
+    noa.setBlock(packet.id, packet.location.z, packet.location.y, packet.location.x)
   })
   client.on('position', function(packet) {
     console.log("Server teleported client to", packet);
