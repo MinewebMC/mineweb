@@ -8,7 +8,12 @@ export function sendChat(client) {
   
 };
 
+
+
+
+
 export function viewChat(msg) {
+  alert(msg);
   if(messagesList.length>=31){
   messagesList.push(msg);
   
