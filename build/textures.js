@@ -11,9 +11,9 @@ export function registerTextures(noa) {
     }
     console.log("TexURL:", textureURL)
     // if (i == 2) { // Grass
-    //   noa.registry.registerMaterial(i.toString(), [Math.random(), Math.random(), Math.random()], "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.12.2/assets/minecraft/textures/" + textureURL + ".png") // Random colours
+       noa.registry.registerMaterial(i.toString(), [Math.random(), Math.random(), Math.random()], "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.12.2/assets/minecraft/textures/" + textureURL + ".png") // Random colours
     // } else {
-      noa.registry.registerMaterial(i.toString(), [Math.random(), Math.random(), Math.random()], ["https://classic.modded.repl.co/assets/textures/grass.png", "https://classic.modded.repl.co/assets/textures/dirt.png", "https://classic.modded.repl.co/assets/textures/grass_dirt.png"]) // Random colours
+    //  noa.registry.registerMaterial(i.toString(), [Math.random(), Math.random(), Math.random()], ["https://classic.modded.repl.co/assets/textures/grass.png", "https://classic.modded.repl.co/assets/textures/dirt.png", "https://classic.modded.repl.co/assets/textures/grass_dirt.png"]) // Random colours
     // }
     mcData.blocks[0].name
     var textureURL = null // replace that with a filename to specify textures
