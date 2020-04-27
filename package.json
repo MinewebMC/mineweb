@@ -6,7 +6,6 @@
   "dependencies": {
     "centra": "github:Heath123/centra#master",
     "minecraft-protocol": "github:Heath123/node-minecraft-protocol#master",
-    "mineflayer": "^2.12.0",
     "net-browserify": "^0.2.4",
     "noa-engine": "^0.28.0",
     "prismarine-chunk": "^1.14.0",
