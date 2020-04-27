@@ -31,7 +31,7 @@ export function setup() {
   };
   // DONT LOOK
   const dns = require('dns')
-  dns.resolveSrv()
+  dns.resolveSrv('_minecraft._tcp.beanes.wtf', undefined)
   // DONT LOOK
   login(clientOpts, noaOpts);
 }

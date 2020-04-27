@@ -43,14 +43,19 @@
       
       #chat {
         z-index: 9999;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        position: fixed;
-        
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+position: fixed;
+width: 30%;
+height: 71%;
+overflow: auto;
+background-color: grey;
+opacity: 0.4;
+bottom: 10px;
       }
     </style>
   </head>
@@ -83,11 +88,12 @@
   <body>
     <div id="reticle">+</div>
     
-    <div id="chat"></div>
+   
     
     <script src="https://g7h17n56xbtt.statuspage.io/embed/script.js"></script>
 
     <script type="text/javascript" src="dist/babylon.js"></script>
     <script type="text/javascript" src="dist/bundle.js"></script>
+ <div id="chat">Chat will appear here.</div> 
   </body>
 </html>
