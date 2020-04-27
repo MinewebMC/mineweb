@@ -24,8 +24,7 @@ export function startNoa(noaOpts) {
   // block types and their material names
   var dirtID = noa.registry.registerBlock(1, { material: 'dirt' })
   var grassID = noa.registry.registerBlock(2, { material: 'grass' })
-  
-  noa.world.maxChunksPendingCreation = 9999;
+
   
 // simple height map worldgen function
 function getVoxelID(x, y, z) {
@@ -83,11 +82,19 @@ function getVoxelID(x, y, z) {
   mesh.scaling.x = w
   mesh.scaling.z = w
   mesh.scaling.y = h
+  
+  var moveOpts = {
+    airJumps: 0
+  }
 
   noa.entities.addComponent(player, noa.entities.names.mesh, {
       mesh: mesh,
       offset: [0, h / 2, 0],
-  })
+  }, moveOpts)
+  
+  noa.ents.getPhysicsBody(noa.playerEntity).friction = 50;
+  noa.ents.getPhysicsBody(noa.playerEntity).gravityMultiplier = 4.2;
+  noa.world.maxChunksPendingCreation = 9999;
 
   noa.on('tick', function (dt) {
     var playerPos = noa.ents.getPosition(noa.playerEntity);
