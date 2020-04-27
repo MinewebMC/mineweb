@@ -1,4 +1,6 @@
-export function bind(noa) {
+import { sendChat } from './chat.js';
+
+export function bindInputs(noa) {
   
   var inputs = require('game-inputs')( noa.container.element );
   
@@ -18,7 +20,8 @@ export function bind(noa) {
   inputs.bind( 'sprint', '<control-left>' );
   
   inputs.bind( 'tab', '<tab>' );
-  inputs.bind( 'pause', '<esc>' )
+  inputs.bind( 'pause', '<esc>' );
+  inputs.bind( 'chat', 'T');
   
   inputs.bind( 'drop', 'Q' );
   inputs.bind( 'inventory', 'E' );
@@ -36,11 +39,15 @@ export function bind(noa) {
 
 ////////////////////////////////////////////////////////////////////////
 
-export function setEvents(noa) {
+export function setEventInputs(noa) {
   noa.inputs.down.on('break', function () {
     if (noa.targetedBlock) noa.setBlock(0, noa.targetedBlock.position)
   })
   noa.inputs.down.on('place', function () {
       // if (noa.targetedBlock) noa.addBlock(grassID, noa.targetedBlock.adjacent)
+  })
+  
+  noa.inputs.down.on('chat', function () {
+    sendChat();
   })
 };

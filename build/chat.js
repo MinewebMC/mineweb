@@ -1,3 +1,5 @@
+/* global client*/
+
 let messagesList = [];
 
 export function sendChat(client) {
@@ -11,6 +13,7 @@ export function viewChat(msg) {
   messagesList.push(msg);
   
   //escape characters for the html
+  // TODO: Escape this properly
   msg = msg.replace("<", "&lt");
   msg = msg.replace(">", "&gt");
   msg = msg.replace("&", "&amp");

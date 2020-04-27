@@ -1,5 +1,6 @@
 // var noajs = require("./noa.js"); Doesn't work with webpack
 import { startNoa } from './noa.js';
+import { viewChat } from './chat.js';
 var mc = require('minecraft-protocol');
 const Chunk = require('prismarine-chunk')("1.12.2");
 
@@ -8,16 +9,25 @@ window.chunksToLoad = {}; // Chunks to load into noa
 /* global client, noa, Engine, opts, Mesh, Chunk, chunksToLoad*/
 
 export function login(clientOpts, noaOpts) {
+  
   window.client = mc.createClient(clientOpts);
 
   client.on('login', function() {
     startNoa(noaOpts);
   });
+  
+  
+  
+  
   client.on('block_change', function(packet) {
     console.log('Block change! ', packet)
     // This works now
     noa.setBlock(packet.type, packet.location.z, packet.location.y, packet.location.x) // Only 0 and 1 exist for now
   })
+  
+  
+  
+  
   client.on('position', function(packet) {
     console.log("Server teleported client to", packet);
     // noa.ents.setCameraRotation()
@@ -25,6 +35,10 @@ export function login(clientOpts, noaOpts) {
     client.write('teleport_confirm', {teleportId: packet.teleportId});
   });
 
+  
+  
+  
+  
   client.on('map_chunk', function(packet) {
     var chunk = new Chunk();
     chunk.load(packet.chunkData, packet.bitMap);
@@ -44,7 +58,7 @@ export function login(clientOpts, noaOpts) {
   if(jsonMsg.translate == 'chat.type.announcement' || jsonMsg.translate == 'chat.type.text') {
     var username = jsonMsg.with[0].text;
     var msg = jsonMsg.with[1];
-    viewChat();
+    viewChat("<"+username+"> "+msg);
   }
 });
   

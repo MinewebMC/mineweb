@@ -2,16 +2,21 @@ import Engine from 'noa-engine';
 import { registerTextures } from './textures.js';
 import { Mesh } from '@babylonjs/core/Meshes/mesh';
 import { updatePosition } from './protocol.js';
+import { bindInputs } from './inputs.js';
+import { setEventInputs } from './inputs.js';
 var Vec3 = require('vec3').Vec3;
 
-//already imported by setup.js, is a global so we inlude it here VV
-/* global Engine, Mesh*/
-// Shouldn't this be imported by protocol.js so it can call it when it's logged in?
-//wait hmm
+
+/* global Engine, Mesh, chunksToLoad*/
+
 
 export function startNoa(noaOpts) {
   // Engine options object, and engine instantiation:
   var noa = new Engine(noaOpts);
+  
+  bindInputs(noa);
+  setEventInputs(noa);
+  
 
   // var texturejs = require("./textures.js"); Doesn't work with webpack
   registerTextures(noa);
@@ -103,9 +108,4 @@ function getVoxelID(x, y, z) {
 
 
 
-
-
-  // let inputsjs = require("./inputs.js");
-  // inputsjs.bind(noa);
-  // inputsjs.setEvents(noa);
 }
