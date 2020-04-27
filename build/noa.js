@@ -35,9 +35,9 @@ function getVoxelID(x, y, z) {
 }  
   
   noa.world.on('worldDataNeeded', function (id, data, x, y, z) {
-    window.setTimeout(function() { // Just testing
-    console.log("needed: " + `${x / 16}|${y / 16}|${z / 16}`, id);
-    console.log(chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`]);
+    // window.setTimeout(function() { // Just testing
+    // console.log("needed: " + `${x / 16}|${y / 16}|${z / 16}`, id);
+    // console.log(chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`]);
     if (typeof chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`] == "undefined") { // If it isn't a chunk that needs to be loaded
       delete noa.world._chunkIDsPending[`${x / 16}|${y / 16}|${z / 16}`];
       console.log("Chunk not found:", `${x / 16}|${y / 16}|${z / 16}`);
@@ -69,7 +69,7 @@ function getVoxelID(x, y, z) {
           }
       }
       // noa.world.setChunkData(id, data) */
-      }, 1000);
+      // }, 1000);
   })
 
   var player = noa.playerEntity
