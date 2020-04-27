@@ -8,7 +8,7 @@ window.chunksToLoad = {}; // Chunks to load into noa
 /* global client, noa, Engine, opts, Mesh, Chunk*/
 
 export function login(clientOpts, noaOpts) {
-  var client = mc.createClient(clientOpts);
+  window.client = mc.createClient(clientOpts);
 
   client.on('login', function() {
     startNoa(noaOpts);
@@ -16,7 +16,7 @@ export function login(clientOpts, noaOpts) {
   
   client.on('position', function(packet) {
     console.log("Server teleported client to", packet);
-    // noa.ents.setPosition(noa.playerEntity, [packet.z, packet.y, packet.x]); // x and z are reversed because otherwise it looks wrong
+    noa.ents.setPosition(noa.playerEntity, [packet.z, packet.y, packet.x]); // x and z are reversed because otherwise it looks wrong
     client.write('teleport_confirm', {teleportId: packet.teleportId});
   });
 
@@ -32,4 +32,8 @@ export function login(clientOpts, noaOpts) {
     // console.log(packet);
     // console.log(chunk);
   });
+}
+
+export function updatePosition(x, y, z) {
+  client.write('position', {x: z, y: y, z: x, onGround: true});
 }

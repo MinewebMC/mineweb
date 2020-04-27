@@ -1,6 +1,7 @@
 import Engine from 'noa-engine';
 import { registerTextures } from './textures.js';
 import { Mesh } from '@babylonjs/core/Meshes/mesh';
+import { updatePosition } from './protocol.js';
 var Vec3 = require('vec3').Vec3;
 
 //already imported by setup.js, is a global so we inlude it here VV
@@ -89,6 +90,8 @@ function getVoxelID(x, y, z) {
   })
 
   noa.on('tick', function (dt) {
+    var playerPos = noa.ents.getPosition(noa.playerEntity);
+    updatePosition(playerPos[0], playerPos[1], playerPos[2]);
     // bot.setControlState('forward', noa.inputs.state.forward);
     // bot.setControlState('jump', noa.inputs.state.jump);
       var scroll = noa.inputs.state.scrolly

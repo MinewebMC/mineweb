@@ -17,7 +17,8 @@ export function setup() {
     showFPS: true,
     chunkSize: 16,
     chunkAddDistance: 2.5,
-    chunkRemoveDistance: 3.5,
+    chunkRemoveDistance: 999.5,
+    tickRate: 50, // ms per tick - not ticks per second
     // See `test` example, or noa docs/source, for more options
 }
 
