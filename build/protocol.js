@@ -32,6 +32,9 @@ export function login(clientOpts, noaOpts) {
     // console.log(packet);
     // console.log(chunk);
   });
+  client.on('block_place', function(packet) {
+    console.log(packet)
+  })
 }
 
 export function updatePosition(x, y, z) {
