@@ -1,6 +1,9 @@
 // var noajs = require("./noa.js"); Doesn't work with webpack
-import noajs from './noa.js';
+import { startNoa } from './noa.js';
 var mc = require('minecraft-protocol');
+const Chunk = require('prismarine-chunk')("1.12.2");
+
+var chunksToLoad = {}; // Chunks to load into noa
 
 /* global client, noa, Engine, opts, Mesh, Chunk*/
 
@@ -8,9 +11,7 @@ export function login(clientOpts, noaOpts) {
   var client = mc.createClient(clientOpts);
 
   client.on('login', function() {
-
-    noajs.start(noaOpts);
-
+    startNoa(noaOpts);
   });
 
 
@@ -18,6 +19,8 @@ export function login(clientOpts, noaOpts) {
     var chunk = new Chunk();
     chunk.load(packet.chunkData, packet.bitMap);
     // noa.world._chunkIDsToRequest.push("0|0|0")
+    noaChunkId
+    console.log(packet);
     console.log(chunk);
   });
 }

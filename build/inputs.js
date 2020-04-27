@@ -1,6 +1,8 @@
 export function bind(noa) {
   
-  var inputs = require('game-inputs')( noa.container );
+  var inputs = require('game-inputs')( noa.container.element );
+  
+  console.log(inputs);
   
   inputs.bind( 'move-forward',   'W', '<up>' );
   inputs.bind( 'move-left', 'A', '<left>' );
@@ -36,9 +38,9 @@ export function bind(noa) {
 
 export function setEvents(noa) {
   noa.inputs.down.on('break', function () {
-      if (noa.targetedBlock) noa.setBlock(0, noa.targetedBlock.position)
+      // if (noa.targetedBlock) noa.setBlock(0, noa.targetedBlock.position)
   })
   noa.inputs.down.on('place', function () {
-      if (noa.targetedBlock) noa.addBlock(grassID, noa.targetedBlock.adjacent)
+      // if (noa.targetedBlock) noa.addBlock(grassID, noa.targetedBlock.adjacent)
   })
 };

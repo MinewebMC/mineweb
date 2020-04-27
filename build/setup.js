@@ -1,12 +1,8 @@
 import Engine from 'noa-engine';
-import { Mesh } from '@babylonjs/core/Meshes/mesh';
 var { Vec3 } = require('vec3');
-const Chunk = require('prismarine-chunk')("1.12.2");
 import { login } from './protocol.js';
 
 export function setup() {
-  var chunksToLoad = {}; // Not used yet - Chunks to load into noa
-
   // Options for noa engine
   var noaOpts = {
       debug: true,

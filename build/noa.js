@@ -1,5 +1,6 @@
 import Engine from 'noa-engine';
 import { registerTextures } from './textures.js';
+import { Mesh } from '@babylonjs/core/Meshes/mesh';
 
 //already imported by setup.js, is a global so we inlude it here VV
 /* global Engine, Mesh*/
@@ -10,7 +11,7 @@ export function startNoa(noaOpts) {
   var noa = new Engine(noaOpts);
 
   // var texturejs = require("./textures.js"); Doesn't work with webpack
-  textures.setup(noa);
+  registerTextures(noa);
 
   function getVoxelID(x, y, z) {
     return 0;
