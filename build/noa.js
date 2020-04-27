@@ -13,24 +13,24 @@ export function startNoa(noaOpts) {
 
   // var texturejs = require("./textures.js"); Doesn't work with webpack
   registerTextures(noa);
-
-  function getVoxelID(x, y, z) {
-    return 0;
-    // return (window.bot.blockAt(new Vec3(z, y, x)).type == 0) ? 0 : 1;
-  }
-
+  
+  noa.world.maxChunksPendingCreation = 9999;
+  
   noa.world.on('worldDataNeeded', function (id, data, x, y, z) {
-    console.log("needed: " + id);
-    console.log(data);
+    console.log("needed: " + `${x}|${y}|${z}`);
+    // console.log(data);
     if (!chunksToLoad[`${x}|${y}|${z}`]) { // If it isn't a chunk that needs to be loaded
       delete noa.world._chunkIDsPending[`${x}|${y}|${z}`];
+      console.log("Chunk not found:");
     } else {
       for (var i = 0; i < data.shape[0]; i++) {
         for (var j = 0; j < data.shape[1]; j++) {
           for (var k = 0; k < data.shape[2]; k++) {
-            var voxelID = chunksToLoad[`${x}|${y}|${z}`].getBlock(new Vec3(i, y + j, k)).name;
+            var voxelID = chunksToLoad[`${x}|${y}|${z}`].getBlock(new Vec3(i, y + j, k));
             console.log("ID:", voxelID);
-            if (voxelID > 1) {
+            if (voxelID.name == "air") {
+              voxelID = 0;
+            } else {
               voxelID = 1;
             }
             data.set(i, j, k, voxelID);
