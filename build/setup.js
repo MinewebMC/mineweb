@@ -4,14 +4,22 @@ import { login } from './protocol.js';
 
 export function setup() {
   // Options for noa engine
-  var noaOpts = {
+  /* var noaOpts = {
       debug: true,
       showFPS: true,
       chunkSize: 16,
       chunkAddDistance: 0, // So I can handle adding chunks myself
       chunkRemoveDistance: 99999.5,
       tickRate: 50, // ms per tick - not ticks per second
-  }
+  } */
+  var noaOpts = {
+    debug: true,
+    showFPS: true,
+    chunkSize: 16,
+    chunkAddDistance: 2.5,
+    chunkRemoveDistance: 3.5,
+    // See `test` example, or noa docs/source, for more options
+}
 
   var clientOpts = {
     host: "91.203.193.189",

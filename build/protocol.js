@@ -16,7 +16,7 @@ export function login(clientOpts, noaOpts) {
   
   client.on('position', function(packet) {
     console.log("Server teleported client to", packet);
-    noa.ents.setPosition(noa.playerEntity, [packet.z, packet.y, packet.x]); // x and z are reversed because otherwise it looks wrong
+    // noa.ents.setPosition(noa.playerEntity, [packet.z, packet.y, packet.x]); // x and z are reversed because otherwise it looks wrong
     client.write('teleport_confirm', {teleportId: packet.teleportId});
   });
 
