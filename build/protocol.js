@@ -15,6 +15,7 @@ export function login(clientOpts, noaOpts) {
   });
   client.on('block_change', function(packet) {
     console.log('Block change! ', packet)
+    noa.setBlock(packet.id, packet.location.z, packet.location.y, packet.location.x) // X, Z switched
   })
   client.on('position', function(packet) {
     console.log("Server teleported client to", packet);
@@ -23,7 +24,6 @@ export function login(clientOpts, noaOpts) {
   });
 
   client.on('map_chunk', function(packet) {
-    console.log('hii')
     var chunk = new Chunk();
     chunk.load(packet.chunkData, packet.bitMap);
     for (var y = 0; y < 16; y++) {
