@@ -9,7 +9,7 @@ export function setup() {
       showFPS: true,
       chunkSize: 16,
       chunkAddDistance: 0, // So I can handle adding chunks myself
-      chunkRemoveDistance: 300.5,
+      chunkRemoveDistance: 99999.5,
       tickRate: 50, // ms per tick - not ticks per second
   }
 

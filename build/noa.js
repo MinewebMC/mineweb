@@ -25,7 +25,13 @@ export function startNoa(noaOpts) {
   
   noa.world.maxChunksPendingCreation = 9999;
   
-  
+// simple height map worldgen function
+function getVoxelID(x, y, z) {
+    if (y < -3) return dirtID
+    var height = 2 * Math.sin(x / 10) + 3 * Math.cos(z / 20)
+    if (y < height) return grassID
+    return 0 // signifying empty space
+}  
   
   noa.world.on('worldDataNeeded', function (id, data, x, y, z) {
     window.setTimeout(function() { // Just testing
@@ -62,7 +68,7 @@ export function startNoa(noaOpts) {
           }
       } */
       // noa.world.setChunkData(id, data)
-      }, 10000);
+      }, 1000);
   })
 
   var player = noa.playerEntity
@@ -96,7 +102,7 @@ export function startNoa(noaOpts) {
 
 
 
-  let inputsjs = require("./inputs.js");
-  inputsjs.bind(noa);
-  inputsjs.setEvents(noa);
+  // let inputsjs = require("./inputs.js");
+  // inputsjs.bind(noa);
+  // inputsjs.setEvents(noa);
 }
