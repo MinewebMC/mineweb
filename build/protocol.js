@@ -15,8 +15,7 @@ export function login(clientOpts, noaOpts) {
   });
   client.on('block_change', function(packet) {
     console.log('Block change! ', packet)
-    // noa.world.setBlockID(packet.id, packet.location.z, packet.location.y, packet.location.x) // X, Z switched
-    c
+    // This works now
     noa.setBlock((packet.type == 0) ? 0 : 1, packet.location.z, packet.location.y, packet.location.x) // Only 0 and 1 exist for now
   })
   client.on('position', function(packet) {
