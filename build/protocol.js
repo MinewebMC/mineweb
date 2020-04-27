@@ -13,18 +13,23 @@ export function login(clientOpts, noaOpts) {
   client.on('login', function() {
     startNoa(noaOpts);
   });
-
+  
+  client.on('position', function(packet) {
+    console.log("Server teleported client to", packet);
+    noa.ents.setPosition(noa.playerEntity, [packet.x, packet.y, packet.z]);
+    client.write('teleport_confirm', {teleportId: packet.teleportId});
+  });
 
   client.on('map_chunk', function(packet) {
     var chunk = new Chunk();
     chunk.load(packet.chunkData, packet.bitMap);
     for (var y = 0; y < 16; y++) {
-      chunksToLoad["${z}|${y}|${x}"] = chunk; // x and z are reversed because otherwise it looks wrong
-      if (!noa.world._chunkIDsToRequest["${z}|${y}|${x}"]) {
-        noa.world._chunkIDsToRequest.push("${z}|${y}|${x}");
+      chunksToLoad[`${packet.z}|${y}|${packet.x}`] = chunk; // x and z are reversed because otherwise it looks wrong
+      if (!noa.world._chunkIDsToRequest[`${packet.z}|${y}|${packet.x}`]) {
+        noa.world._chunkIDsToRequest.push(`${packet.z}|${y}|${packet.x}`);
       }
     }
-    console.log(packet);
-    console.log(chunk);
+    // console.log(packet);
+    // console.log(chunk);
   });
 }

@@ -22,13 +22,13 @@ export function startNoa(noaOpts) {
   noa.world.on('worldDataNeeded', function (id, data, x, y, z) {
     console.log("needed: " + id);
     console.log(data);
-    if (!chunksToLoad["${x}|${y}|${z}"]) { // If it isn't a chunk that needs to be loaded
-      delete noa.world._chunkIDsPending["${x}|${y}|${z}"];
+    if (!chunksToLoad[`${x}|${y}|${z}`]) { // If it isn't a chunk that needs to be loaded
+      delete noa.world._chunkIDsPending[`${x}|${y}|${z}`];
     } else {
       for (var i = 0; i < data.shape[0]; i++) {
         for (var j = 0; j < data.shape[1]; j++) {
           for (var k = 0; k < data.shape[2]; k++) {
-            var voxelID = chunksToLoad["${x}|${y}|${z}"].getBlock(new Vec3(i, y + j, k)).type == 0 ? 0 : 1;
+            var voxelID = chunksToLoad[`${x}|${y}|${z}`].getBlock(new Vec3(i, y + j, k)).type == 0 ? 0 : 1;
             data.set(i, j, k, voxelID);
           }
         }
