@@ -5,19 +5,15 @@ module.exports.resolveSrv = function(hostname, callback) {
   const Http = new XMLHttpRequest();
   const url= `https://dns.google.com/resolve?name=${hostname}&type=SRV`;
   Http.open("GET", url);
+  Http.responseType = 'json';
   Http.send();
-
-  Http.onreadystatechange = (e) => {
-    // console.log(Http.responseText)
-    let response;
-    try {
-      response = JSON.parse(Http.responseText)
-    } catch (err) {
-      return callback(err)
+  
+  Http.onload = function() {
+    const response = Http.response;
+    if (response.Answer.length < 1) {
+      return callback(new Error('No srv record'))
     }
-    if (response.Status !== 0) {
-      return callback(new Error('Fail'))
-    }
+    console.log('status: ' + response.Status)
     const willreturn = []
     response.Answer.forEach(function (object) {
       const data = object.data.split(' ')
@@ -29,5 +25,5 @@ module.exports.resolveSrv = function(hostname, callback) {
       })
     })
     callback(undefined, willreturn)
-  }
+  };
 }
