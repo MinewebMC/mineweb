@@ -16,5 +16,5 @@
       "^server/server.js$"
     ]
   },
-  "throttle": 0100
+  "throttle": 1000
 }

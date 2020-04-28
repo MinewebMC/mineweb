@@ -8,7 +8,7 @@ const styles = {
   dark_red: "color:#AA0000",
   dark_purple: "color:#AA00AA",
   gold: "color:#FFAA00",
-  grey: "color:#AAAAAA",
+  grey: "color:#AAAAAA", 
   dark_grey: "color:#555555",
   blue: "color:#5555FF",
   green: "color:#55FF55",
