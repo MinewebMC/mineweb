@@ -74,7 +74,7 @@ export function login(clientOpts, noaOpts) {
             'light_purple': 'color:#FF55FF',
             'yellow': 'color:#FFFF55',
             'white': 'color:#FFFFFF',
-            'bold': 'font-weight:bold',
+            'bold': 'font-weight:900',
             'strikethrough': 'text-decoration:line-through',
             'underlined': 'text-decoration:underline',
             'italic': 'font-style:italic',
