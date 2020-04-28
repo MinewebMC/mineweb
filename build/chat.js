@@ -14,19 +14,6 @@ export function addChatEvents() {
   };
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 export function viewChat(msg) { //this doesnt work
   alert(msg);
   if(messagesList.length>=31){

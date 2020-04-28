@@ -49,17 +49,39 @@ export function login(clientOpts, noaOpts) {
     // console.log(chunk);
   });
   
+  client.on('message', function (packet) { // i made this script to parse messages
+    viewChat(packet);
+    // This should go in chat.js //alright.. what about listening to the packet inside chat.js?
+    // Passing the client. Well its going to be a lot... For example if u want to support EVERYTHING its going to be a long file. (Inventory it self will be a lot for example, pickup, drop, etc) 
+    // Pass it to chat.js then
+    // Is client global?
+    // Yes, I put window.client
+      var fullmessage = JSON.parse(data.message.toString()); // oh did you? but we should make a init function Line 13
+      if (!fullmessage.extra) {
+        message = fullmesasge.text
+      } else {
+        var message = '';
+        for (var i in fullmessage.extra) {
+          if (fullmessage.extra[i].text) {
+            message = message + fullmessage.extra[i].text.toLowerCase();
+          }
+        }
+      };
+      
+  })
   
-  client.on('chat', function(packet) {
-    var jsonMsg = JSON.parse(packet.message);
-    if(jsonMsg.translate == 'chat.type.announcement' || jsonMsg.translate == 'chat.type.text') {
-      var username = jsonMsg.with[0].text;
-      var msg = jsonMsg.with[1];
-      viewChat(`<${username}> ${msg}`);
-      console.warn("[Chat] <" + username + "> " + msg);
-    }
-});
-  
+  // client.on('chat', function(packet) {
+  //   console.log(packet)
+  //   var jsonMsg = JSON.parse(packet.message);
+  //   if(jsonMsg.translate == 'chat.type.announcement' || jsonMsg.translate == 'chat.type.text') {
+  //     const username = jsonMsg.with[0].text
+  //     const msg = jsonMsg.with[1]
+  //     if (username === client.username) return
+  //     if (msg.text) client.write('chat', { message: msg.text })
+  //     else client.write('chat', { message: msg })
+      // Im going to take my own code of another project i made.. Because this is a bit broken 
+      
+  // });
   
 }
 
