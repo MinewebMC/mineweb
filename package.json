@@ -18,8 +18,8 @@
   },
   "scripts": {
     "compile": "npx webpack",
-    "startt": "echo you thought didnt youy",
-    "startt": "npx webpack --progress --watch & node server/main.js"
+    "start": "echo you thought didnt youy",
+    "startt": "npx webpack --progress --watch & node server/index.js"
   },
   "repository": {
     "type": "git",

@@ -1,13 +1,20 @@
 {
   "install": {
-    "include": [
-      "server.js"
+    "exclude": [
+      "dns.js",
+      "^build/",
+      "^dist/"
     ]
   },
   "restart": {
+    "exclude": [
+      "dns.js",
+      "^build/",
+      "^dist/"
+    ],
     "include": [
-      "^nothinghahaha"
+      "^server/server.js$"
     ]
   },
-  "throttle": 100
+  "throttle": 0100
 }

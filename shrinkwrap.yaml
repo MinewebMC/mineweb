@@ -4,7 +4,6 @@ dependencies:
   net-browserify: 0.2.4
   noa-engine: 0.28.0
   prismarine-chunk: 1.14.0
-  protodef: github.com/Heath123/node-protodef/22c4a0679a827531957dc231bb3d95b789e2e113
   webpack: 4.43.0
   webpack-cli: 3.3.11
   ws: 7.2.5
@@ -482,7 +481,7 @@ packages:
       chownr: 1.1.4
       figgy-pudding: 3.5.2
       glob: 7.1.6
-      graceful-fs: 4.2.3
+      graceful-fs: 4.2.4
       infer-owner: 1.0.4
       lru-cache: 5.1.1
       mississippi: 3.0.0
@@ -908,7 +907,7 @@ packages:
       integrity: sha1-5cx1eLEDLW7gHq/Nc3ZdsNtNwKY=
   /enhanced-resolve/4.1.0:
     dependencies:
-      graceful-fs: 4.2.3
+      graceful-fs: 4.2.4
       memory-fs: 0.4.1
       tapable: 1.1.3
     dev: false
@@ -918,7 +917,7 @@ packages:
       integrity: sha512-F/7vkyTtyc/llOIn8oWclcB25KdRaiPBpZYDgJHgh/UHtpgT2p2eldQgtQnLtUvfMKPKxbRaQM/hHkvLHt1Vng==
   /enhanced-resolve/4.1.1:
     dependencies:
-      graceful-fs: 4.2.3
+      graceful-fs: 4.2.4
       memory-fs: 0.5.0
       tapable: 1.1.3
     dev: false
@@ -1218,7 +1217,7 @@ packages:
       integrity: sha1-i/tVAr3kpNNs/e6gB/zKIdfjgq8=
   /fs-write-stream-atomic/1.0.10:
     dependencies:
-      graceful-fs: 4.2.3
+      graceful-fs: 4.2.4
       iferr: 0.1.5
       imurmurhash: 0.1.4
       readable-stream: 2.3.7
@@ -1333,10 +1332,10 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-awConJSVCHVGND6x3tmMaKcQvwXLhjdkmomy2W+Goaui8YPgYgXJZewhg3fWC+DlfqqQuWg8AwqjGTD2nAPVWg==
-  /graceful-fs/4.2.3:
+  /graceful-fs/4.2.4:
     dev: false
     resolution:
-      integrity: sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
+      integrity: sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
   /has-flag/3.0.0:
     dev: false
     engines:
@@ -2549,7 +2548,7 @@ packages:
       integrity: sha512-BViHy7LKeTz4oNnkcLJ+lVSL6vpiFeX6/d3oSH8zCW7UxP2onchk+vTGB143xuFjHS3deTgkKoXXymXqymiIdA==
   /readdirp/2.2.1:
     dependencies:
-      graceful-fs: 4.2.3
+      graceful-fs: 4.2.4
       micromatch: 3.1.10
       readable-stream: 2.3.7
     dev: false
@@ -3224,7 +3223,7 @@ packages:
   /watchpack/1.6.1:
     dependencies:
       chokidar: 2.1.8
-      graceful-fs: 4.2.3
+      graceful-fs: 4.2.4
       neo-async: 2.6.1
     dev: false
     resolution:
@@ -3389,6 +3388,7 @@ packages:
     dev: false
     name: centra
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/Heath123/centra/tar.gz/6d0280af9f2677922cb2999ceaf5b24867b558dd'
     version: 2.4.0
   github.com/Heath123/node-minecraft-protocol/294014491b8188ff7d8a45dc337d935b32ec5983:
@@ -3410,29 +3410,16 @@ packages:
       node: '>=6'
     name: minecraft-protocol
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/Heath123/node-minecraft-protocol/tar.gz/294014491b8188ff7d8a45dc337d935b32ec5983'
     version: 1.11.0
-  github.com/Heath123/node-protodef/22c4a0679a827531957dc231bb3d95b789e2e113:
-    dependencies:
-      lodash.get: 4.4.2
-      lodash.reduce: 4.6.0
-      protodef-validator: 1.2.3
-      readable-stream: 3.6.0
-    dev: false
-    engines:
-      node: '>=6'
-    name: protodef
-    prepare: true
-    requiresBuild: true
-    resolution:
-      tarball: 'https://codeload.github.com/Heath123/node-protodef/tar.gz/22c4a0679a827531957dc231bb3d95b789e2e113'
-    version: 1.6.10
   github.com/andyhall/aabb-3d/6b0fb3ce72d4e8e5e8fb3e4b3581a194d952b8fa:
     dependencies:
       gl-vec3: 1.1.3
     dev: false
     name: aabb-3d
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/andyhall/aabb-3d/tar.gz/6b0fb3ce72d4e8e5e8fb3e4b3581a194d952b8fa'
     version: 0.2.1
   github.com/andyhall/game-shell/5cd78b52c6abb5cc250340c635ea79040b56c966:
@@ -3446,6 +3433,7 @@ packages:
     dev: false
     name: game-shell
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/andyhall/game-shell/tar.gz/5cd78b52c6abb5cc250340c635ea79040b56c966'
     version: 1.3.2
 registry: 'https://registry.npmjs.org/'
@@ -3458,7 +3446,6 @@ specifiers:
   net-browserify: ^0.2.4
   noa-engine: ^0.28.0
   prismarine-chunk: ^1.14.0
-  protodef: 'github:Heath123/node-protodef#master'
   webpack: ^4.43.0
   webpack-cli: ^3.3.11
   ws: '>=1.1.5'
