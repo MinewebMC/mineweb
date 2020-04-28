@@ -54,27 +54,41 @@ export function login(clientOpts, noaOpts) {
     // console.log(chunk);
   });
   
+  client.on('kick_disconnect', function (packet) { 
+    alert("Disconnected: " + packet.reason);
+  });
+  
   client.on('chat', function (packet) { // i made this script to parse messages
     console.log(packet)
     // alright imma compile and test if this script still works on 1.12.2
     // Is what I did on line 12 good?
-    let fullmessage = packet.message; // anyways lets test this
+    let fullmessage = JSON.parse(packet.message.toString());; // JSON parse the message string (its a string)
+    // know i know why i did that xd
     let msg;
-    if (!fullmessage.extra) {
-      console.log('using normal')
-      msg = fullmessage.text
-    } else {
+    if (fullmessage.extra.length > 0) {
       msg = '';
-      console.log('using extra')
       for (var i in fullmessage.extra) {
-        console.log('extraaaaaa')
+        console.log('loop!')
         if (fullmessage.extra[i].text) {
-          console.log('add')
           msg = msg + fullmessage.extra[i].text
+        } else { // i swear i hate this message system of minecraft
+          // "{"text":"","extra":[{"text":"<Beanes> ","color":"white","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"","extra":[{"text":"z","color":"white","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}]}]}"
+          for (var j in fullmessage.extra[i].extra) {
+            if (fullmessage.extra[i].extra[j].text) {
+              msg = msg + fullmessage.extra[i].extra[j].text
+            }
+          }
         }
       }
+    } else {
+      msg = fullmessage.extra
     };
-      console.log('new msg', msg)
+    console.log('new msg', msg)
+    var ul = document.getElementById("chat");
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(msg));
+    //li.setAttribute("id", "element4"); // add attributes if needed (can be used to color maybe?)
+    ul.appendChild(li);
       // imma look at packet structure first, i saw that already
       
   })
