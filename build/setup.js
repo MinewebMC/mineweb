@@ -21,7 +21,7 @@ export function setup() {
     tickRate: 50 // ms per tick - not ticks per second
     // See `test` example, or noa docs/source, for more options
   };
-  const username = "mineweb" + Math.floor(Math.random() * 1000);
+  const username = "minewebuser" + Math.floor(Math.random() * 1000); // you need to r e c o m p i l e. // open terminal and type `./compile.sh` i think mine web user is better then mineweb
   console.log("Starting with username: " + username);
   var clientOpts = {
     host: 'beanes.wtf',
