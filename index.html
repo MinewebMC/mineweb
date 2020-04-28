@@ -40,7 +40,7 @@
         text-shadow: 1px 1px 0px black;
         text-align: center;
       }
-      
+
       #chat {
         z-index: 9999;
         -webkit-touch-callout: none;
@@ -58,21 +58,22 @@
         bottom: 40px;
         list-style-type: none;
         text-align: left;
-        margin: 0; 
+        margin: 0;
         padding: 0;
       }
-    #beta {
-    z-index: 9999;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-}
+      #beta {
+        z-index: 9999;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+      }
     </style>
   </head>
 
-  <div class="separator" style="clear: both; text-align: center;">
-    Game is loading...
+  <div  id="loading" class="separator" style="clear: both; text-align: center;">
+    Connecting to the server...
   </div>
+  <!---
   <div class="separator" style="clear: both; text-align: center;">
     <div style="text-align: center;">
       Are you having connection problems?&nbsp;
@@ -88,30 +89,36 @@
         >node-minecraft-protocol</a
       >
     </div>
+    
 
     <div class="separator" style="clear: both; text-align: center;">
       <br />
     </div>
     <div class="separator" style="clear: both; text-align: center;"></div>
   </div>
+  
 
+-->
   <body>
     <div id="reticle">+</div>
-    
-   
-    
-    <script src="https://g7h17n56xbtt.statuspage.io/embed/script.js"></script>
 
     <script type="text/javascript" src="dist/babylon.js"></script>
     <script type="text/javascript" src="dist/bundle.js"></script>
     <center>
-<div id="beta">
-<span style="color: white;">Mineweb snapshot 20w18b|Mineweb by circuit10, ash potter, SiebeDW and Dennis</span><br />
-<span style="color: white;">Don't forget to join our Discord server: <a href="https://discord.gg/zSxsc9F">our discord</a></span>
-    </div>
-</center>
-   <ul id="chat">
-     <li><span style="color: white;">Thanks for using mineweb! In here you can use the chat! <br>You can write a message by pressing the t key! When will the water texures come, I don't know: D </span></li>
-   </ul>
+      <div id="beta">
+        <span style="color: white;">Mineweb snapshot 20w18b | Mineweb by the MineWeb Team</span>
+        <br />
+        <span style="color: white;">Don't forget to join our
+          <a href="https://discord.gg/zSxsc9F">Discord Server</a>!</span>
+      </div>
+    </center>
+    <ul id="chat">
+      <li>
+        <span style="color: white;">
+          Thanks for using mineweb! In here you can use the chat! <br>You can
+          write a message by pressing the t key! 
+        </span>
+      </li>
+    </ul>
   </body>
 </html>
