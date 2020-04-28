@@ -19,8 +19,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sh compile.sh",
-    "start": "cd server && npx webpack --progress --watch & nodemon --watch ../dist main.js"
+    "start": "echo Glitch doesnt auto restart anymore Please run npm run auto.",
+    "auto": "cd server && nodemon --watch ../dist main.js & npx webpack --progress --watch"
   },
   "repository": {
     "type": "git",

@@ -1,7 +1,13 @@
 {
-  "restart": {
-    "exclude": [
-      "*"
+  "install": {
+    "include": [
+      "nothing"
     ]
-  }
+  },
+  "restart": {
+    "include": [
+      "^nothinghahaha"
+    ]
+  },
+  "throttle": 100
 }
