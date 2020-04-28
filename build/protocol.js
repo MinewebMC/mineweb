@@ -58,7 +58,7 @@ export function login(clientOpts, noaOpts) {
   if(jsonMsg.translate == 'chat.type.announcement' || jsonMsg.translate == 'chat.type.text') {
     var username = jsonMsg.with[0].text;
     var msg = jsonMsg.with[1];
-    viewChat("<"+username+"> "+msg);
+    viewChat(``);
   }
 });
   

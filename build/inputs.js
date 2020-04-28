@@ -1,4 +1,4 @@
-import { sendChat } from './chat.js';
+import { addChatEvents } from './chat.js';
 
 export function bindInputs(noa) {
   
@@ -40,6 +40,9 @@ export function bindInputs(noa) {
 ////////////////////////////////////////////////////////////////////////
 
 export function setEventInputs(noa) {
+  
+  addChatEvents();
+  
   noa.inputs.down.on('break', function () {
     if (noa.targetedBlock) noa.setBlock(0, noa.targetedBlock.position)
   })
@@ -47,7 +50,5 @@ export function setEventInputs(noa) {
       // if (noa.targetedBlock) noa.addBlock(grassID, noa.targetedBlock.adjacent)
   })
   
-  noa.inputs.down.on('chat', function () {
-    sendChat();
-  })
+  
 };

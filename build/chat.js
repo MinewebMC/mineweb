@@ -2,11 +2,24 @@
 
 let messagesList = [];
 
-export function sendChat(client) {
-  let msg = prompt("Send Message");
-  client.write('chat', {message: msg});
-  
-};
+
+export function addChatEvents() {
+  document.onkeypress = function (e) {
+    e = e || window.event;
+    if(e.keyCode !== 84) return;
+    let msg = prompt("Send Message");
+    client.write('chat', {message: msg});
+  };
+}
+
+
+
+
+
+
+
+
+
 
 
 
