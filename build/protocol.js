@@ -83,9 +83,10 @@ export function login(clientOpts, noaOpts) {
     } else {
       msg = fullmessage.extra
     };
-    console.log('new msg', msg)
     var ul = document.getElementById("chat");
     var li = document.createElement("li");
+    var span = document.createElement("span")
+    li.appendChild(span)
     li.appendChild(document.createTextNode(msg));
     //li.setAttribute("id", "element4"); // add attributes if needed (can be used to color maybe?)
     ul.appendChild(li);
