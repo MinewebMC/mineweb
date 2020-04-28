@@ -89,6 +89,7 @@ export function login(clientOpts, noaOpts) {
     li.appendChild(document.createTextNode(msg));
     //li.setAttribute("id", "element4"); // add attributes if needed (can be used to color maybe?)
     ul.appendChild(li);
+    ul.scrollTop = ul.scrollHeight; // Stay bottem of the list
       // imma look at packet structure first, i saw that already
       
   })
