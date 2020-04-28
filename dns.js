@@ -1,4 +1,5 @@
-// Custom DNS SRV resolver made by SiebeDW. Powered by google dns.
+// Custom DNS resolver made by SiebeDW. Powered by google dns.
+// Supported: SRV (not all errors support)
 module.exports.resolveSrv = function(hostname, callback) {
   const Http = new XMLHttpRequest();
   const url= `https://dns.google.com/resolve?name=${hostname}&type=SRV`;
@@ -11,17 +12,15 @@ module.exports.resolveSrv = function(hostname, callback) {
     if (response.Status === 3) {
       const err = new Error('querySrv ENOTFOUND')
       err.code = 'ENOTFOUND'
-      callback(err, [])
+      callback(err)
       return;
     }
-    console.log(response.Status)
     if (!response.Answer || response.Answer.length < 1) {
       const err = new Error('querySrv ENODATA')
       err.code = 'ENODATA'
       callback(err)
       return;
     }
-    console.log('status: ' + response.Status)
     const willreturn = []
     response.Answer.forEach(function (object) {
       const data = object.data.split(' ')
@@ -32,6 +31,6 @@ module.exports.resolveSrv = function(hostname, callback) {
         name: data[3]
       })
     })
-    callback(undefined, willreturn)
+    callback(null, willreturn)
   };
 }

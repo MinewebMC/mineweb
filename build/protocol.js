@@ -54,12 +54,13 @@ export function login(clientOpts, noaOpts) {
   
   
   client.on('chat', function(packet) {
-  var jsonMsg = JSON.parse(packet.message);
-  if(jsonMsg.translate == 'chat.type.announcement' || jsonMsg.translate == 'chat.type.text') {
-    var username = jsonMsg.with[0].text;
-    var msg = jsonMsg.with[1];
-    viewChat(``);
-  }
+    var jsonMsg = JSON.parse(packet.message);
+    if(jsonMsg.translate == 'chat.type.announcement' || jsonMsg.translate == 'chat.type.text') {
+      var username = jsonMsg.with[0].text;
+      var msg = jsonMsg.with[1];
+      viewChat(`<${username}> ${msg}`);
+      console.warn("[Chat] <" + username + "> " + msg);
+    }
 });
   
   
