@@ -29,7 +29,7 @@ export function addChatEvents() {
     console.log(e.code);
     e = e || window.event;
     if (e.code === "KeyT") {
-      let msg = prompt("Send Message"); // TODO: Move to input
+      let msg = prompt("Send A Message"); // TODO: Move to input
       getClient().write("chat", { message: msg });
     }
   };
