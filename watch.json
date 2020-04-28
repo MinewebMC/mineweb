@@ -1,20 +1,14 @@
 {
-  "install": {
-    "exclude": [
-      "dns.js",
-      "^build/",
-      "^dist/"
-    ]
-  },
   "restart": {
     "exclude": [
-      "dns.js",
-      "^build/",
-      "^dist/"
+      "\.js$"
+      "build/",
+      "dist/"
     ],
     "include": [
-      "^server/server.js$"
+      "server/",
+      "server.js"
     ]
   },
-  "throttle": 1000
+  "throttle": 100
 }

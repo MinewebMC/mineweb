@@ -18,7 +18,7 @@
   },
   "scripts": {
     "compile": "npx webpack",
-    "start": "echo you thought didnt youy",
+    "start": "echo Restart && node server/server.js & npx webpack --progress --watch ",
     "startt": "npx webpack --progress --watch & node server/server.js"
   },
   "repository": {
