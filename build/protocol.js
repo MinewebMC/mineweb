@@ -57,42 +57,59 @@ export function login(clientOpts, noaOpts) {
   client.on('kick_disconnect', function (packet) { 
     alert("Disconnected: " + packet.reason);
   });
-  
+  const styles = {
+            'black': 'color:#000000',
+            'dark_blue': 'color:#0000AA',
+            'dark_green': 'color:#00AA00',
+            'dark_aqua': 'color:#00AAAA',
+            'dark_red': 'color:#AA0000',
+            'dark_purple': 'color:#AA00AA',
+            'gold': 'color:#FFAA00',
+            'grey': 'color:#AAAAAA',
+            'dark_grey': 'color:#555555',
+            'blue': 'color:#5555FF',
+            'green': 'color:#55FF55',
+            'aqua': 'color:#55FFFF',
+            'red': 'color:#FF5555',
+            'light_purple': 'color:#FF55FF',
+            'yellow': 'color:#FFFF55',
+            'white': 'color:#FFFFFF'
+  }
   client.on('chat', function (packet) { // i made this script to parse messages
     console.log(packet)
     // alright imma compile and test if this script still works on 1.12.2
     // Is what I did on line 12 good?
     let fullmessage = JSON.parse(packet.message.toString());; // JSON parse the message string (its a string)
     // know i know why i did that xd
-    let msg;
+    let msglist = [];
     if (fullmessage.extra.length > 0) {
-      msg = '';
       for (var i in fullmessage.extra) {
         console.log('loop!')
         if (fullmessage.extra[i].text) {
-          msg = msg + fullmessage.extra[i].text
+          msglist.push({ text: fullmessage.extra[i].text, color: fullmessage.extra[i].color })
         } else { // i swear i hate this message system of minecraft
           // "{"text":"","extra":[{"text":"<Beanes> ","color":"white","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"","extra":[{"text":"z","color":"white","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}]}]}"
           for (var j in fullmessage.extra[i].extra) {
             if (fullmessage.extra[i].extra[j].text) {
-              msg = msg + fullmessage.extra[i].extra[j].text
+               msglist.push({ text: fullmessage.extra[i].extra[j].text, color: fullmessage.extra[i].extra[j].color })
             }
           }
         }
       }
     } else {
-      msg = fullmessage.extra
+      msglist.push({ text: fullmessage.extra, color: undefined })
     };
     var ul = document.getElementById("chat");
     var li = document.createElement("li");
-    var span = document.createElement("span")
-    li.appendChild(span)
-    li.appendChild(document.createTextNode(msg));
-    //li.setAttribute("id", "element4"); // add attributes if needed (can be used to color maybe?)
+    msglist.forEach(msg => {
+      console.log(msg)
+      var span = document.createElement("span")
+      span.appendChild(document.createTextNode(msg));
+      span.setAttribute("style", "color:red;");
+      li.appendChild(span)
+    })
     ul.appendChild(li);
-    ul.scrollTop = ul.scrollHeight; // Stay bottem of the list
-      // imma look at packet structure first, i saw that already
-      
+    ul.scrollTop = ul.scrollHeight;// Stay bottem of the list      
   })
   
   // client.on('chat', function(packet) {
