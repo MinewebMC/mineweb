@@ -11,8 +11,7 @@
     "prismarine-chunk": "^1.14.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "ws": ">=1.1.5",
-    "node-protodef": "ProtoDef-io/node-protodef#master"
+    "ws": ">=1.1.5"
   },
   "devDependencies": {
     "@babylonjs/core": "^4.1.0"
