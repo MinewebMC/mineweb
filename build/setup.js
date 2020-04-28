@@ -14,7 +14,7 @@ export function setup() {
   } */
   var noaOpts = {
     debug: true,
-    showFPS: true,
+    showFPS: false,
     chunkSize: 16,
     chunkAddDistance: 2.5,
     chunkRemoveDistance: 999.5,
