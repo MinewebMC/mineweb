@@ -22,7 +22,7 @@ export function login(clientOpts, noaOpts, moveOpts) {
   });
 
   client.on("block_change", function(packet) {
-    console.log("Block change! ", packet);
+    console.log("Block change packet! ", packet);
     noa.setBlock(
       packet.type,
       packet.location.z,

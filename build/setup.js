@@ -28,8 +28,8 @@ export function setup() {
     standingFriction: 0.9 // From Mineflayer - not sure if the units are the same
   };
   // const username = "minewebuser" + Math.floor(Math.random() * 1000); // you need to r e c o m p i l e. // open terminal and type `./compile.sh` i think mine web user is better then mineweb
-  const username = prompt("Please choose a usernamee");
-  console.log("Starting with username: " + username);
+  const username = prompt("Please choose a username");
+  console.log("Starting with usernamee: " + username);
   var clientOpts = {
     host: "beanes.wtf",
     port: 25565,

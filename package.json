@@ -20,7 +20,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sh compile.sh",
-    "start": "npm run build && cd server && node server.js"
+    "start": "cd server && node server.js"
   },
   "repository": {
     "type": "git",
