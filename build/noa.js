@@ -10,10 +10,10 @@ var Vec3 = require('vec3').Vec3;
 /* global Engine, Mesh, chunksToLoad*/
 
 
-export function startNoa(noaOpts) {
+export function startNoa(noaOpts, moveOpts) {
   // Engine options object, and engine instantiation:
   var noa = new Engine(noaOpts);
-  noa.ents.addComponentAgain(noa.playerEntity, noa.ents.names.movement, {airJumps: 0});
+  noa.ents.addComponentAgain(noa.playerEntity, noa.ents.names.movement, moveOpts);
   
   bindInputs(noa);
   setEventInputs(noa);

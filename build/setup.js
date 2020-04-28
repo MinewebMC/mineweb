@@ -14,14 +14,21 @@ export function setup() {
   } */
   var noaOpts = {
     debug: true,
-    showFPS: false,
+    showFPS: false, // show fps false is better
     chunkSize: 16,
     chunkAddDistance: 2.5,
     chunkRemoveDistance: 999.5,
     tickRate: 50 // ms per tick - not ticks per second
     // See `test` example, or noa docs/source, for more options
   };
-  const username = "minewebuser" + Math.floor(Math.random() * 1000); // you need to r e c o m p i l e. // open terminal and type `./compile.sh` i think mine web user is better then mineweb
+  var moveOpts = {
+    airJumps: 0,
+    maxSpeed: 4.317, // From Mineflayer - not sure if the units are the same
+    moveForce: 100, // From Mineflayer - not sure if the units are the same
+    standingFriction: 0.9 // From Mineflayer - not sure if the units are the same
+  }; 
+  // const username = "minewebuser" + Math.floor(Math.random() * 1000); // you need to r e c o m p i l e. // open terminal and type `./compile.sh` i think mine web user is better then mineweb
+  const username = prompt("Please choose a username");
   console.log("Starting with username: " + username);
   var clientOpts = {
     host: 'beanes.wtf',
@@ -29,7 +36,7 @@ export function setup() {
     username: username,
     version: "1.12.2"
   };
-  login(clientOpts, noaOpts);
+  login(clientOpts, noaOpts, moveOpts);
 }
 
 //
