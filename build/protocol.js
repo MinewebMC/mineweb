@@ -55,8 +55,13 @@ export function login(clientOpts, noaOpts) {
   });
   
   client.on('kick_disconnect', function (packet) { 
-    alert("Disconnected: " + packet.reason);
+    alert("Kicked: " + packet.reason);
   });
+  
+  client.on('end', function (reason) { 
+    alert("Connection closed: " + reason);
+  });
+  
   const styles = {
             'black': 'color:#000000',
             'dark_blue': 'color:#0000AA',
@@ -109,7 +114,7 @@ export function login(clientOpts, noaOpts) {
       console.log(msg)
       var span = document.createElement("span")
       span.appendChild(document.createTextNode(msg.text));
-      span.setAttribute("style", `${styles[msg.color.toLowerCase()]}; ${msg.bold ? styles['bold'] + ';': ''}${msg.italic ? styles['italic'] + ';': ''}${msg.strikethrough ? styles['strikethrough'] + ';': ''}${msg.underlined ? styles['underlined'] + ';': ''}`);
+      span.setAttribute("style", `${msg.color ? styles[msg.color.toLowerCase()] : styles['white']}; ${msg.bold ? styles['bold'] + ';': ''}${msg.italic ? styles['italic'] + ';': ''}${msg.strikethrough ? styles['strikethrough'] + ';': ''}${msg.underlined ? styles['underlined'] + ';': ''}`);
       li.appendChild(span)
     })
     ul.appendChild(li);

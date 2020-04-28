@@ -24,7 +24,7 @@ export function setup() {
   const username = "mineweb" + Math.floor(Math.random() * 1000);
   console.log("Starting with username: " + username);
   var clientOpts = {
-    host: 'flying-squid.host',
+    host: 'beanes.wtf',
     port: 25565,
     username: username,
     version: "1.12.2"
