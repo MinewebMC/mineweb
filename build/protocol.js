@@ -73,7 +73,11 @@ export function login(clientOpts, noaOpts) {
             'red': 'color:#FF5555',
             'light_purple': 'color:#FF55FF',
             'yellow': 'color:#FFFF55',
-            'white': 'color:#FFFFFF'
+            'white': 'color:#FFFFFF',
+            'bold': 'font-weight:bold',
+            'strikethrough': 'text-decoration:line-through',
+            'underlined': 'text-decoration:underline',
+            'italic': 'font-style:italic',
   }
   client.on('chat', function (packet) { // i made this script to parse messages
     console.log(packet)
@@ -86,12 +90,12 @@ export function login(clientOpts, noaOpts) {
       for (var i in fullmessage.extra) {
         console.log('loop!')
         if (fullmessage.extra[i].text) {
-          msglist.push({ text: fullmessage.extra[i].text, color: fullmessage.extra[i].color })
+          msglist.push({ text: fullmessage.extra[i].text, color: fullmessage.extra[i].color, bold: (fullmessage.extra[i].bold ? true : false), italic: (fullmessage.extra[i].italic ? true : false), underlined: (fullmessage.extra[i].underlined) ? true : false, strikethrough: (fullmessage.extra[i].strikethrough) ? true : false, obfuscated: (fullmessage.extra[i].obfuscated) ? true : false })
         } else { // i swear i hate this message system of minecraft
           // "{"text":"","extra":[{"text":"<Beanes> ","color":"white","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"","extra":[{"text":"z","color":"white","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}]}]}"
           for (var j in fullmessage.extra[i].extra) {
             if (fullmessage.extra[i].extra[j].text) {
-               msglist.push({ text: fullmessage.extra[i].extra[j].text, color: fullmessage.extra[i].extra[j].color })
+               msglist.push({ text: fullmessage.extra[i].extra[j].text, color: fullmessage.extra[i].extra[j].color, bold: (fullmessage.extra[i].extra[j].bold ? true : false), italic: (fullmessage.extra[i].extra[j].italic ? true : false), underlined: (fullmessage.extra[i].extra[j].underlined) ? true : false, strikethrough: (fullmessage.extra[i].extra[j].strikethrough) ? true : false, obfuscated: (fullmessage.extra[i].extra[j].obfuscated) ? true : false  })
             }
           }
         }
@@ -104,8 +108,8 @@ export function login(clientOpts, noaOpts) {
     msglist.forEach(msg => {
       console.log(msg)
       var span = document.createElement("span")
-      span.appendChild(document.createTextNode(msg));
-      span.setAttribute("style", "color:red;");
+      span.appendChild(document.createTextNode(msg.text));
+      span.setAttribute("style", `${styles[msg.color.toLowerCase()]}; ${msg.bold ? styles['bold'] + ';': ''}${msg.italic ? styles['italic'] + ';': ''}${msg.strikethrough ? styles['strikethrough'] + ';': ''}${msg.underlined ? styles['underlined'] + ';': ''}`);
       li.appendChild(span)
     })
     ul.appendChild(li);
