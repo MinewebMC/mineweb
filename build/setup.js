@@ -24,23 +24,10 @@ export function setup() {
   const username = "mineweb" + Math.floor(Math.random() * 1000);
   console.log("Starting with username: " + username);
   var clientOpts = {
-    //host: "91.203.193.189",
-    host: 'beanes.wtf',
+    host: 'flying-squid.host',
     port: 25565,
     username: username,
     version: "1.12.2"
   };
-  // DONT LOOK
-  const dns = require('dns')
-//   dns.resolveSrv('_minecraft._tcp.beanes.wtf', (err, addresses) => {
-//     if (err) {
-//       console.log('wow error: ' + err)
-//     } else {
-//       console.log('some addresses: ')
-//       console.log(addresses)
-//     }
-    
-//   })
-  // DONT LOOK
   login(clientOpts, noaOpts);
 }
