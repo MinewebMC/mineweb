@@ -1,3 +1,4 @@
+
 // This is a hack to make this work without a DNS module
 //Which isnt made yet... (?)
 // No, the blank file makes it work
@@ -10,8 +11,17 @@ module.exports.resolveSrv = function(hostname, callback) {
   
   Http.onload = function() {
     const response = Http.response;
-    if (response.Answer.length < 1) {
-      return callback(new Error('No srv record'))
+    if (response.Status === 3) {
+      const err = new Error('querySrv ENOTFOUND')
+      err.code = 'ENOTFOUND'
+      console.log(err.code)
+      return;
+    }
+    console.log(response.Status)
+    if (!response.Answer || response.Answer.length < 1) {
+      const err = new Error('querySrv ENOTFOUND')
+      callback(new Error('querySrv ENODATA'), [])
+      return;
     }
     console.log('status: ' + response.Status)
     const willreturn = []

@@ -25,7 +25,7 @@ export function setup() {
   console.log("Starting with username: " + username);
   var clientOpts = {
     //host: "91.203.193.189",
-    host: 'mc.flying-squid.host',
+    host: 'mc.flying-squiddddd.host',
     port: 25565,
     username: username,
     version: "1.12.2"
