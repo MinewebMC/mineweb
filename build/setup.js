@@ -31,8 +31,16 @@ export function setup() {
     version: "1.12.2"
   };
   // DONT LOOK
-  // const dns = require('dns')
-  // dns.resolveSrv('_minecraft._tcp.beanes.wtf', undefined)
+  const dns = require('dns')
+  dns.resolveSrv('_minecraft._tcp.beanes.wtf', (err, addresses) => {
+    if (err) {
+      console.log('wow error: ' + err)
+    } else {
+      console.log('some addresses: ')
+      console.log(ad)
+    }
+    
+  })
   // DONT LOOK
   login(clientOpts, noaOpts);
 }

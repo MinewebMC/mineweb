@@ -8,7 +8,16 @@ module.exports.resolveSrv = function(hostname, callback) {
   Http.send();
 
   Http.onreadystatechange = (e) => {
-    const response = JSON.parse(Http.responseText)
+    // console.log(Http.responseText)
+    let response;
+    try {
+      response = JSON.parse(Http.responseText)
+    } catch (err) {
+      return callback(err)
+    }
+    if (response.Status !== 0) {
+      return callback(new Error('Fail'))
+    }
     const willreturn = []
     response.Answer.forEach(function (object) {
       const data = object.data.split(' ')
@@ -19,6 +28,6 @@ module.exports.resolveSrv = function(hostname, callback) {
         name: data[3]
       })
     })
-    callback(willreturn)
+    callback(undefined, willreturn)
   }
 }
