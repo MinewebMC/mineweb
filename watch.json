@@ -1,7 +1,7 @@
 {
   "install": {
     "include": [
-      "nothing"
+      "server.js"
     ]
   },
   "restart": {

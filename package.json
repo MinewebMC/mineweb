@@ -18,8 +18,8 @@
   },
   "scripts": {
     "compile": "npx webpack",
-    "start": "cd server && node server.js",
-    "auto": "cd server && nodemon --watch ../dist main.js & npx webpack --progress --watch"
+    "startt": "echo you thought didnt youy",
+    "startt": "npx webpack --progress --watch & node server/main.js"
   },
   "repository": {
     "type": "git",
