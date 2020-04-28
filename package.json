@@ -19,7 +19,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx webpack && refresh && cd server && node server.js"
+    "build": "sh compile.sh",
+    "start": "npm run build && cd server && node server.js"
   },
   "repository": {
     "type": "git",
@@ -33,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/Heath123/html5-minecraft-client/issues"
   },
-  "homepage": "https://github.com/Heath123/html5-minecraft-client#readme"
+  "homepage": "https://github.com/Heath123/html5-minecraft-client#readme",
+  "engines": {
+    "node": "10.x"
+  }
 }
