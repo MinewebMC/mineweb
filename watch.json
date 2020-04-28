@@ -1,11 +1,7 @@
 {
   "restart": {
-    "include": [
-      "^dist/",
-      "dist/",
-      "./dist",
-      "./dist/",
-      "dist"
+    "exclude": [
+      "*"
     ]
   }
 }
