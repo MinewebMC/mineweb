@@ -1,2 +1,2 @@
-import { setup } from './setup.js';
+import { setup } from "./setup.js";
 setup();
