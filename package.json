@@ -18,8 +18,8 @@
     "@babylonjs/core": "^4.1.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "echo Glitch doesnt auto restart anymore Please run npm run auto.",
+    "compile": "npx webpack",
+    "start": "cd server && node main.js",
     "auto": "cd server && nodemon --watch ../dist main.js & npx webpack --progress --watch"
   },
   "repository": {
