@@ -16,9 +16,6 @@ export function login(clientOpts, noaOpts) {
     startNoa(noaOpts);
   });
   
-  
-  
-  
   client.on('block_change', function(packet) {
     console.log('Block change! ', packet)
     // This works now
