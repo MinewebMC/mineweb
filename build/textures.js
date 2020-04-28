@@ -11,13 +11,8 @@ export function registerTextures(noa) {
     }
     console.log("TexURL:", textureURL)
     // if (i == 2) { // Grass
-    if (i === 9) {
-      reg.registerMaterial(9, [0.20, 0.85, 0.95, 0.5], null)
-      noa.registry.registerBlock(9, { material: 'water', fluid: true, fluidDensity: 1.0, viscosity: 0.5 })
-    } else {
-      noa.registry.registerMaterial(i.toString(), [Math.random(), Math.random(), Math.random()], "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.12.2/assets/minecraft/textures/" + textureURL + ".png") // Random colours
-      noa.registry.registerBlock(i, { material: i.toString() })
-    }
+     noa.registry.registerMaterial(i.toString(), [Math.random(), Math.random(), Math.random()], "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.12.2/assets/minecraft/textures/" + textureURL + ".png") // Random colours
+    noa.registry.registerBlock(i, { material: i.toString() })
     
     // } else {
     //  noa.registry.registerMaterial(i.toString(), [Math.random(), Math.random(), Math.random()], ["https://classic.modded.repl.co/assets/textures/grass.png", "https://classic.modded.repl.co/assets/textures/dirt.png", "https://classic.modded.repl.co/assets/textures/grass_dirt.png"]) // Random colours

@@ -13,6 +13,7 @@ var Vec3 = require('vec3').Vec3;
 export function startNoa(noaOpts) {
   // Engine options object, and engine instantiation:
   var noa = new Engine(noaOpts);
+  noa.ents.addComponentAgain(noa.playerEntity, noa.ents.names.movement, {airJumps: 0});
   
   bindInputs(noa);
   setEventInputs(noa);
