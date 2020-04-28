@@ -5,10 +5,12 @@ let messagesList = [];
 
 export function addChatEvents() {
   document.onkeypress = function (e) {
-    e = e || window.event;
-    if(e.keyCode !== 84) return;
-    let msg = prompt("Send Message");
-    client.write('chat', {message: msg});
+    console.log(e.code)
+    e = e || window.event; 
+    if(e.code === 'KeyT') { 
+      let msg = prompt("Send Message");
+      client.write('chat', {message: msg});
+    }
   };
 }
 
@@ -25,7 +27,7 @@ export function addChatEvents() {
 
 
 
-export function viewChat(msg) {
+export function viewChat(msg) { //this doesnt work
   alert(msg);
   if(messagesList.length>=31){
   messagesList.push(msg);
