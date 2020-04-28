@@ -3,14 +3,19 @@ import { startNoa } from './noa.js';
 import { viewChat } from './chat.js';
 var mc = require('minecraft-protocol');
 const Chunk = require('prismarine-chunk')("1.12.2");
+var client; // Maybe if I declare it here? Yep, that worked
 
 window.chunksToLoad = {}; // Chunks to load into noa
 
 /* global client, noa, Engine, opts, Mesh, Chunk, chunksToLoad*/
 
+export function getClient() {
+  return client; // What about doing that?
+}
+ // probalby its good. i mean the other way would pass it thru a function or use window
 export function login(clientOpts, noaOpts) {
-  
-  window.client = mc.createClient(clientOpts);
+  // updatePosition client isnt defined, pass it thru? No, it's in the same file
+  client = mc.createClient(clientOpts);
 
   client.on('login', function() {
     startNoa(noaOpts);
@@ -49,24 +54,28 @@ export function login(clientOpts, noaOpts) {
     // console.log(chunk);
   });
   
-  client.on('message', function (packet) { // i made this script to parse messages
-    viewChat(packet);
-    // This should go in chat.js //alright.. what about listening to the packet inside chat.js?
-    // Passing the client. Well its going to be a lot... For example if u want to support EVERYTHING its going to be a long file. (Inventory it self will be a lot for example, pickup, drop, etc) 
-    // Pass it to chat.js then
-    // Is client global?
-    // Yes, I put window.client
-      var fullmessage = JSON.parse(data.message.toString()); // oh did you? but we should make a init function Line 13
-      if (!fullmessage.extra) {
-        message = fullmesasge.text
-      } else {
-        var message = '';
-        for (var i in fullmessage.extra) {
-          if (fullmessage.extra[i].text) {
-            message = message + fullmessage.extra[i].text.toLowerCase();
-          }
+  client.on('chat', function (packet) { // i made this script to parse messages
+    console.log(packet)
+    // alright imma compile and test if this script still works on 1.12.2
+    // Is what I did on line 12 good?
+    let fullmessage = packet.message; // anyways lets test this
+    let msg;
+    if (!fullmessage.extra) {
+      console.log('using normal')
+      msg = fullmessage.text
+    } else {
+      msg = '';
+      console.log('using extra')
+      for (var i in fullmessage.extra) {
+        console.log('extraaaaaa')
+        if (fullmessage.extra[i].text) {
+          console.log('add')
+          msg = msg + fullmessage.extra[i].text
         }
-      };
+      }
+    };
+      console.log('new msg', msg)
+      // imma look at packet structure first, i saw that already
       
   })
   

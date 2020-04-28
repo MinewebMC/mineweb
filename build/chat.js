@@ -1,4 +1,4 @@
-/* global client*/
+import { getClient } from './protocol.js';
 
 let messagesList = [];
 
@@ -9,7 +9,7 @@ export function addChatEvents() {
     e = e || window.event; 
     if(e.code === 'KeyT') { 
       let msg = prompt("Send Message");
-      client.write('chat', {message: msg});
+      getClient().write('chat', {message: msg});
     }
   };
 }
