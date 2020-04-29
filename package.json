@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "npx webpack",
-    "start": "npx webpack --progress --watch & node server/server.js"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
