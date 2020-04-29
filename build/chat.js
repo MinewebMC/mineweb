@@ -23,6 +23,9 @@ const styles = {
   italic: "font-style:italic"
 };
 export function addChatEvents() {
+  // Show chat
+  document.getElementById('chat').style.display = 'block'
+  
   const client = getClient();
   // listen for key
   document.onkeypress = function(e) {
