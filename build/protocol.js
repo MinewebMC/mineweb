@@ -68,5 +68,6 @@ export function login(clientOpts, noaOpts, moveOpts) {
 }
 
 export function updatePosition(x, y, z) {
-  client.write("position", { x: z, y: y, z: x, onGround: true });
+  client.write("position_look", { x: z, y: y, z: x,  onGround: !noa.ents.getMovement(noa.playerEntity)._isJumping });
+  // TODO: proper onGround and rotation 
 }

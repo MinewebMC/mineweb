@@ -102,9 +102,6 @@ export function addChatEvents() {
   client.on("chat", function(packet) {
     console.log(packet);
     let fullmessage = JSON.parse(packet.message.toString());
-    if (!fullmessage.extra) {
-      fullmessage.extra = ""; // Prevents errors
-    }
     let msglist = [];
     if (fullmessage.extra && fullmessage.extra.length > 0) {
       for (var i in fullmessage.extra) {
