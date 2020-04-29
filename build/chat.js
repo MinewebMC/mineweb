@@ -1,5 +1,5 @@
 import { getClient } from "./protocol.js";
-import { getNoa } from "./noa.js"
+import { getNoa } from "./noa.js";
 
 const styles = {
   black: "color:#000000",
@@ -9,7 +9,7 @@ const styles = {
   dark_red: "color:#AA0000",
   dark_purple: "color:#AA00AA",
   gold: "color:#FFAA00",
-  grey: "color:#AAAAAA", 
+  grey: "color:#AAAAAA",
   dark_grey: "color:#555555",
   blue: "color:#5555FF",
   green: "color:#55FF55",
@@ -25,40 +25,65 @@ const styles = {
 };
 export function addChatEvents() {
   // Show chat
-  document.getElementById('chat').style.display = 'block'
-  document.getElementById('chatinput').style.display = 'block'
-  
+  document.getElementById("chat").style.display = "block";
+
   const client = getClient();
-  
+
   let inChat = false;
   // listen for key
   document.onkeypress = function(e) {
     e = e || window.event;
-    if (e.code === "KeyT") {
-      document.exitPointerLock();
-      getNoa().inputs.disabled = true;
-      inChat = true;
-      document.getElementById("chatinput").focus(); 
-      // 
-    } else if (e.code === 'Enter') {
+    if (e.code === "KeyT" && inChat === false) {
+      enableChat();
+      return false;
+      //
+    } else if (e.code === "Enter") {
       if (!inChat) return;
-      console.log(getNoa().inputs.disabled)
-      getClient().write("chat", { message: document.getElementById('chatinput').value });
-      document.getElementById('chatinput').value = ''
+      disableChat()
+      console.log(getNoa().inputs.disabled);
+      getClient().write("chat", {
+        message: document.getElementById("chatinput").value
+      });
+      document.getElementById("chatinput").value = "";
+      document.getElementById("chatinput").blur();
+      const canvas = document.getElementById("noa-canvas");
+      canvas.requestPointerLock =
+        canvas.requestPointerLock || canvas.mozRequestPointerLock;
+      canvas.requestPointerLock();
     }
   };
   // Enable inputs back when focused
-  document.addEventListener('pointerlockchange', function(event) {
-    const canvas = document.getElementById('noa-canvas')
-    if (document.pointerLockElement === canvas || document.mozPointerLockElement === canvas) { // Back in game, enable inputs bcak
+  document.addEventListener("pointerlockchange", function(event) {
+    const canvas = document.getElementById("noa-canvas");
+    if (
+      document.pointerLockElement === canvas ||
+      document.mozPointerLockElement === canvas
+    ) {
+      // Back in game, enable inputs bcak
       inChat = false;
+      document.getElementById("chatinput").style.display = "none";
       getNoa().inputs.disabled = false;
     }
   });
+  function enableChat() {
+    // Set inChat value
+    inChat = true;
+    // Exit the pointer lock
+    document.exitPointerLock();
+    // Show chat input
+    document.getElementById("chatinput").style.display = "block";
+    document.getElementById("chatinput").focus();
+    // Disable controls
+    getNoa().inputs.disabled = true;
+  }
+  function disableChat() {
+    document.getElementById("chatinput").style.display = "none";
+    // Enable controls
+    getNoa().inputs.disabled = false;
+  }
   
   
   // Client part
-
   client.on("chat", function(packet) {
     console.log(packet);
     let fullmessage = JSON.parse(packet.message.toString());
