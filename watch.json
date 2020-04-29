@@ -1,14 +1,7 @@
 {
   "restart": {
-    "exclude": [
-      "build/*",
-      "dist/*",
-      "dns.js"
-    ],
-    "include": [
-      "server/",
-      "server.js"
-    ]
+    "exclude": ["build/*", "dist/*", "dns.js"],
+    "include": ["server/", "server.js"]
   },
   "throttle": 1000
 }

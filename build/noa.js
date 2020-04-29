@@ -98,10 +98,10 @@ export function startNoa(noaOpts, moveOpts) {
   noa.ents.getPhysicsBody(noa.playerEntity).friction = 50;
   noa.ents.getPhysicsBody(noa.playerEntity).gravityMultiplier = 4.2;
   noa.world.maxChunksPendingCreation = 9999;
-  
+
   noa.rendering._camera.fov += 0.4; // Increase FoV
 
-  noa.on("tick", function(dt) { 
+  noa.on("tick", function(dt) {
     var playerPos = noa.ents.getPosition(noa.playerEntity);
     updatePosition(playerPos[0], playerPos[1], playerPos[2]);
     // bot.setControlState('forward', noa.inputs.state.forward);

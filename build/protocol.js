@@ -14,14 +14,17 @@ export function getClient() {
 }
 export function login(clientOpts, noaOpts, moveOpts) {
   client = mc.createClient(clientOpts);
-  
+
   // HACK TO MAKE AN ESC POPUP WITH SETTINGS ETC
-  document.addEventListener('pointerlockchange', function(event) {
-    const canvas = document.getElementById('noa-canvas')
-    if (document.pointerLockElement === canvas || document.mozPointerLockElement === canvas) {
-      console.log('The pointer lock status is now locked');
+  document.addEventListener("pointerlockchange", function(event) {
+    const canvas = document.getElementById("noa-canvas");
+    if (
+      document.pointerLockElement === canvas ||
+      document.mozPointerLockElement === canvas
+    ) {
+      console.log("The pointer lock status is now locked");
     } else {
-      console.log('The pointer lock status is now unlocked');
+      console.log("The pointer lock status is now unlocked");
     }
   });
   // END
@@ -68,6 +71,13 @@ export function login(clientOpts, noaOpts, moveOpts) {
 }
 
 export function updatePosition(x, y, z) {
-  client.write("position_look", { x: z, y: y, z: x,  onGround: !noa.ents.getMovement(noa.playerEntity)._isJumping });
-  // TODO: proper onGround and rotation 
+  client.write("position_look", {
+    x: z,
+    y: y,
+    z: x,
+    yaw: 0 - (noa.camera.heading + 0.5 * Math.PI),
+    pitch: 0 - noa.camera.pitch,
+    onGround: !noa.ents.getMovement(noa.playerEntity)._isJumping
+  });
+  // TODO: proper onGround and rotation
 }

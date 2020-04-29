@@ -4,42 +4,40 @@ const mcData = require("minecraft-data")("1.12.2");
 
 export function registerTextures(noa) {
   noa.registry.registerMaterial(
-      "dirt",
-      [Math.random(), Math.random(), Math.random()],
-      "https://mineweb-dev.glitch.me/textures/dirt.png"
-    ); // Random colours
-  
-    noa.registry.registerMaterial(
-      "grass_top",
-      [Math.random(), Math.random(), Math.random()],
-      "https://mineweb-dev.glitch.me/textures/grass_top.png"
-    ); // Random colours
-  
-    noa.registry.registerMaterial(
-      "grass_side",
-      [Math.random(), Math.random(), Math.random()],
-      "https://mineweb-dev.glitch.me/textures/grass_side.png"
-    ); // Random colours
-  
-  
-    noa.registry.registerMaterial(
-      "log_side",
-      [Math.random(), Math.random(), Math.random()],
-      "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.12.2/assets/minecraft/textures/blocks/log_oak.png"
-    )
-    noa.registry.registerMaterial(
-      "log_top",
-      [Math.random(), Math.random(), Math.random()],
-      "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.12.2/assets/minecraft/textures/blocks/log_oak_top.png"
-    ); // Random colours
-  
-    noa.registry.registerMaterial(
-      "leaves",
-      [Math.random(), Math.random(), Math.random()],
-      "https://mineweb-dev.glitch.me/textures/leaves.png"
-    ); // Random colours
-  
-  
+    "dirt",
+    [Math.random(), Math.random(), Math.random()],
+    "https://mineweb-dev.glitch.me/textures/dirt.png"
+  ); // Random colours
+
+  noa.registry.registerMaterial(
+    "grass_top",
+    [Math.random(), Math.random(), Math.random()],
+    "https://mineweb-dev.glitch.me/textures/grass_top.png"
+  ); // Random colours
+
+  noa.registry.registerMaterial(
+    "grass_side",
+    [Math.random(), Math.random(), Math.random()],
+    "https://mineweb-dev.glitch.me/textures/grass_side.png"
+  ); // Random colours
+
+  noa.registry.registerMaterial(
+    "log_side",
+    [Math.random(), Math.random(), Math.random()],
+    "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.12.2/assets/minecraft/textures/blocks/log_oak.png"
+  );
+  noa.registry.registerMaterial(
+    "log_top",
+    [Math.random(), Math.random(), Math.random()],
+    "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.12.2/assets/minecraft/textures/blocks/log_oak_top.png"
+  ); // Random colours
+
+  noa.registry.registerMaterial(
+    "leaves",
+    [Math.random(), Math.random(), Math.random()],
+    "https://mineweb-dev.glitch.me/textures/leaves.png"
+  ); // Random colours
+
   for (var i = 1; i < 256; i++) {
     try {
       var textureURL = data.filter(function(block) {
@@ -49,13 +47,21 @@ export function registerTextures(noa) {
       var textureURL = null;
     }
     console.log("TexURL:", textureURL);
-    if (i == 3) { // Dirt
+    if (i == 3) {
+      // Dirt
       noa.registry.registerBlock(i, { material: "dirt" });
-    } else if (i == 2) { // Grass (TODO: SNOW GRASS)
-      noa.registry.registerBlock(i, { material: ["grass_top", "dirt", "grass_side"] }); 
-    } else if (i === 17) { // Log (TODO: Different logs support) (TODO: Calculate sides too)
-      noa.registry.registerBlock(i, { material: ["log_top", "log_top", "log_side"] }); 
-    } else if (i === 18) { // Leaves
+    } else if (i == 2) {
+      // Grass (TODO: SNOW GRASS)
+      noa.registry.registerBlock(i, {
+        material: ["grass_top", "dirt", "grass_side"]
+      });
+    } else if (i === 17) {
+      // Log (TODO: Different logs support) (TODO: Calculate sides too)
+      noa.registry.registerBlock(i, {
+        material: ["log_top", "log_top", "log_side"]
+      });
+    } else if (i === 18) {
+      // Leaves
       noa.registry.registerBlock(i, { material: "leaves" });
     } else {
       noa.registry.registerMaterial(
