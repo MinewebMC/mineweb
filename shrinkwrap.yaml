@@ -1,5 +1,6 @@
 dependencies:
   centra: github.com/Heath123/centra/6d0280af9f2677922cb2999ceaf5b24867b558dd
+  minecraft-data: 2.46.0
   minecraft-protocol: github.com/Heath123/node-minecraft-protocol/294014491b8188ff7d8a45dc337d935b32ec5983
   net-browserify: 0.2.4
   noa-engine: 0.28.0
@@ -3459,6 +3460,7 @@ shrinkwrapVersion: 3
 specifiers:
   '@babylonjs/core': ^4.1.0
   centra: 'github:Heath123/centra#master'
+  minecraft-data: ^2.46.0
   minecraft-protocol: 'github:Heath123/node-minecraft-protocol#master'
   net-browserify: ^0.2.4
   noa-engine: ^0.28.0
