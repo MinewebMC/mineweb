@@ -32,6 +32,11 @@ export function registerTextures(noa) {
     console.log("TexURL:", textureURL);
     if (i == 3) { // Dirt
       noa.registry.registerBlock(i, { material: "dirt" });
+    } else if (i == 2) { // Grass
+      noa.registry.registerBlock(i, { material: ["grass_top", "dirt", "grass_side"] });
+    } else if (i === 17) { // Log
+      
+  
     } else {
       noa.registry.registerMaterial(
         i.toString(),
