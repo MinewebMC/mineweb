@@ -30,26 +30,24 @@ export function addChatEvents() {
   const client = getClient();
 
   let inChat = false;
-  // listen for key
   document.onkeypress = function(e) {
     e = e || window.event;
     if (e.code === "KeyT" && inChat === false) {
       enableChat();
       return false;
       //
-    } else if (e.code === "Enter") {
+    } else if (e.code === "Enter" ||) {
       if (!inChat) return;
-      disableChat()
-      console.log(getNoa().inputs.disabled);
       getClient().write("chat", {
         message: document.getElementById("chatinput").value
       });
-      document.getElementById("chatinput").value = "";
-      document.getElementById("chatinput").blur();
-      const canvas = document.getElementById("noa-canvas");
-      canvas.requestPointerLock =
-        canvas.requestPointerLock || canvas.mozRequestPointerLock;
-      canvas.requestPointerLock();
+      disableChat();
+      // console.log(getNoa().inputs.disabled);
+
+      // document.getElementById("chatinput").value = "";
+      // document.getElementById("chatinput").blur();
+    } else if (e.keyCode === 27 || e.key === "Escape" || e.key === "Esc" || e.co) {
+      disableChat()
     }
   };
   // Enable inputs back when focused
@@ -59,10 +57,9 @@ export function addChatEvents() {
       document.pointerLockElement === canvas ||
       document.mozPointerLockElement === canvas
     ) {
-      // Back in game, enable inputs bcak
+      // Someone focused the game back so we hide chat.
       inChat = false;
-      document.getElementById("chatinput").style.display = "none";
-      getNoa().inputs.disabled = false;
+      hideChat();
     }
   });
   function enableChat() {
@@ -77,12 +74,27 @@ export function addChatEvents() {
     getNoa().inputs.disabled = true;
   }
   function disableChat() {
-    document.getElementById("chatinput").style.display = "none";
+    // Set inChat value
+    inChat = false;
+    // Hide chat
+    hideChat()
     // Enable controls
     getNoa().inputs.disabled = false;
+    // Focus noa again
+    const canvas = document.getElementById("noa-canvas");
+    canvas.requestPointerLock =
+      canvas.requestPointerLock || canvas.mozRequestPointerLock;
+    canvas.requestPointerLock();
   }
-  
-  
+  function hideChat() {
+    // Clear chat input
+    document.getElementById("chatinput").value = "";
+    // Unfocus it
+    document.getElementById("chatinput").blur();
+    // Hide it
+    document.getElementById("chatinput").style.display = "none";
+  }
+
   // Client part
   client.on("chat", function(packet) {
     console.log(packet);
