@@ -59,7 +59,8 @@
         -ms-overflow-style: none;
         user-select: none;
         position: fixed;
-        width: 35%;
+        /* width: 35%; */
+        width: 640px;
         height: 41%;
         overflow: auto;
         background-color: rgba(0, 0, 0, 0.5);
@@ -81,11 +82,12 @@
         -ms-user-select: none;
         user-select: none;
         position: fixed;
-        width: 34.9%;
+        /* width: 35%; */
+        width: 640px;
         height: 2%;
         overflow: auto;
-        background-color: grey;
-        opacity: 0.9;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* opacity: 0.9; */
         bottom: 6px;
         list-style-type: none;
         text-align: left;
@@ -94,6 +96,10 @@
         font-family: "MinecraftiaRegular";
         font-style: normal;
         display: none;
+        padding: 7px 8px 8px 8px;
+        border: none;
+        outline: none;
+        color: white;
       }
       #beta {
         z-index: 9999;
@@ -111,10 +117,10 @@
 
   <div id="loading" class="separator" style="clear: both; text-align: center;">
     Connecting to the server...
-    <br />Please Wait. it takes an average of 30 seconds. To open the game, you
+    <br />Please Wait. <!-- it takes an average of 30 seconds. ??? It doesn't tkae that long... !--> To open the game, you
     need to choose a nickname. if the nickname selection screen is not
-    displayed, press f5. <br />
-    having problems? go the
+    displayed, press F5. <br />
+    Having problems? Go to the
     <a href="https://mineweb.statuspage.io/" target="_blank">Service Status</a>
   </div>
   <!---
@@ -162,11 +168,11 @@
     <center>
       <div id="beta">
         <span style="color: white;"
-          >Mineweb snapshot 20w21a public test build 2</span
+          >Mineweb snapshot 20w21b</span
         >
         <span style="color: white;"
-          >|Version number:58|Minecraft_version: 1.12.2|Version date:28/04/2020
-          11:24pm(GMT+03:00)|node:v10.15.3</span
+          >|Version number:59|Minecraft_version: 1.12.2|Version date:29/04/2020
+          03:50pm(GMT+03:00)|node:v10.15.3</span
         >
         <br />
         <span style="color: white;"
@@ -195,7 +201,7 @@
     <ul id="chat">
       <li>
         <span style="color: white;">
-          Thanks for using mineweb dev! In here you can use the chat! <br />You
+          Thanks for using Mineweb Dev! In here you can use the chat! <br />You
           can write a message by pressing the T key! Issues?
           <a href="https://mineweb.statuspage.io/" target="_blank"
             >Status page</a
@@ -205,6 +211,6 @@
         </span>
       </li>
     </ul>
-    <input id="chatinput" type="text" value="Put here your message in!" />
+    <input id="chatinput" type="text" value="" />
   </body>
 </html>

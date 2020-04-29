@@ -9,8 +9,8 @@ const styles = {
   dark_red: "color:#AA0000",
   dark_purple: "color:#AA00AA",
   gold: "color:#FFAA00",
-  grey: "color:#AAAAAA",
-  dark_grey: "color:#555555",
+  gray: "color:#AAAAAA",
+  dark_gray: "color:#555555",
   blue: "color:#5555FF",
   green: "color:#55FF55",
   aqua: "color:#55FFFF",
@@ -35,11 +35,10 @@ export function addChatEvents() {
     if (!inChat) return;
     e = e || window.event;
     if (e.keyCode === 27 || e.key === "Escape" || e.key === "Esc") {
-      disableChat()
+      disableChat();
     }
   };
-  
-  
+
   // Chat events
   document.onkeypress = function(e) {
     e = e || window.event;
@@ -81,7 +80,7 @@ export function addChatEvents() {
     // Set inChat value
     inChat = false;
     // Hide chat
-    hideChat()
+    hideChat();
     // Enable controls
     getNoa().inputs.disabled = false;
     // Focus noa again
@@ -103,8 +102,11 @@ export function addChatEvents() {
   client.on("chat", function(packet) {
     console.log(packet);
     let fullmessage = JSON.parse(packet.message.toString());
+    if (!fullmessage.extra) {
+      fullmessage.extra = ""; // Prevents errors
+    }
     let msglist = [];
-    if (fullmessage && fullmessage.extra.length > 0) {
+    if (fullmessage.extra && fullmessage.extra.length > 0) {
       for (var i in fullmessage.extra) {
         if (fullmessage.extra[i].text) {
           msglist.push({
