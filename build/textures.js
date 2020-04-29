@@ -32,6 +32,14 @@ export function registerTextures(noa) {
       [Math.random(), Math.random(), Math.random()],
       "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.12.2/assets/minecraft/textures/blocks/log_oak_top.png"
     ); // Random colours
+  
+    noa.registry.registerMaterial(
+      "leaves",
+      [Math.random(), Math.random(), Math.random()],
+      "https://mineweb-dev.glitch.me/textures/leaves.png"
+    ); // Random colours
+  
+  
   for (var i = 1; i < 256; i++) {
     try {
       var textureURL = data.filter(function(block) {
@@ -47,6 +55,8 @@ export function registerTextures(noa) {
       noa.registry.registerBlock(i, { material: ["grass_top", "dirt", "grass_side"] }); 
     } else if (i === 17) { // Log (TODO: Different logs support) (TODO: Calculate sides too)
       noa.registry.registerBlock(i, { material: ["log_top", "log_top", "log_side"] }); 
+    } else if (i === 18) { // Leaves
+      noa.registry.registerBlock(i, { material: "leaves" });
     } else {
       noa.registry.registerMaterial(
         i.toString(),
