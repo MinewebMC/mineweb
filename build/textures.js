@@ -45,8 +45,8 @@ export function registerTextures(noa) {
       noa.registry.registerBlock(i, { material: "dirt" });
     } else if (i == 2) { // Grass (TODO: SNOW GRASS)
       noa.registry.registerBlock(i, { material: ["grass_top", "dirt", "grass_side"] }); 
-    } else if (i === 17) { // Log (TODO: Different logs support)
-      noa.registry.registerBlock(i, { material: ["log_side", "log_side", "log_side"] }); 
+    } else if (i === 17) { // Log (TODO: Different logs support) (TODO: Calculate sides too)
+      noa.registry.registerBlock(i, { material: ["log_top", "log_top", "log_side"] }); 
     } else {
       noa.registry.registerMaterial(
         i.toString(),

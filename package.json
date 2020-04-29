@@ -20,10 +20,7 @@
   },
   "scripts": {
     "build": "npx webpack",
-    "starttt": "echo Restart && node server/server.js",
-    "starttt": "echo Restart && node server/server.js & npx webpack --progress --watch ",
-    "startt": "npx webpack --progress --watch & node server/server.js",
-    "start": "node server/server.js"
+    "start": "npx webpack --progress --watch & node server/server.js"
   },
   "repository": {
     "type": "git",
