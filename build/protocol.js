@@ -14,19 +14,19 @@ export function getClient() {
 }
 export function login(clientOpts, noaOpts, moveOpts) {
   client = mc.createClient(clientOpts);
+  
+  // HACK TO MAKE AN ESC POPUP WITH SETTINGS ETC
   document.addEventListener('pointerlockchange', function(event) {
-    const canvas = window
+    const canvas = document.getElementById('noa-canvas')
     if (document.pointerLockElement === canvas || document.mozPointerLockElement === canvas) {
       console.log('The pointer lock status is now locked');
-      document.addEventListener("mousemove", updatePosition, false);
     } else {
       console.log('The pointer lock status is now unlocked');
-      document.removeEventListener("mousemove", updatePosition, false);
     }
   });
+  // END
   client.on("login", function() {
     startNoa(noaOpts, moveOpts);
-    addChatEvents();
     // Add more... For example inventory
   });
 

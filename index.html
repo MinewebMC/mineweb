@@ -68,15 +68,18 @@
         width: 100%;
       }
       #music {
-        display:none;
+        display: none;
       }
     </style>
   </head>
 
-  <div  id="loading" class="separator" style="clear: both; text-align: center;">
+  <div id="loading" class="separator" style="clear: both; text-align: center;">
     Connecting to the server...
-    <br>Please Wait. it takes an average of 30 seconds. To open the game, you need to choose a nickname. if the nickname selection screen is not displayed, press f5. <br>
-  having problems? go the <a href="https://mineweb.statuspage.io/">Service Status</a>
+    <br />Please Wait. it takes an average of 30 seconds. To open the game, you
+    need to choose a nickname. if the nickname selection screen is not
+    displayed, press f5. <br />
+    having problems? go the
+    <a href="https://mineweb.statuspage.io/">Service Status</a>
   </div>
   <!---
   <div class="separator" style="clear: both; text-align: center;">
@@ -109,30 +112,50 @@
 
     <script type="text/javascript" src="dist/babylon.js"></script>
     <script type="text/javascript" src="dist/bundle.js"></script>
+    <script>
+      window.onbeforeunload = function() {
+        return true;
+      };
+    </script>
     <center>
       <div id="beta">
-        <span style="color: white;">Mineweb snapshot 20w21a public test build 2</span>
-        <span style="color: white;">|Version number:58|Minecraft_version: 1.12.2|Version date:28/04/2020 11:24pm(GMT+03:00)|node:v10.15.3</span>
-      <br />
-        <span style="color: white;">Don't forget to join our
-          <a href="https://discord.gg/zSxsc9F">Discord Server</a>!</span>
-        <span style="color: white;">if a texture is corrupt, please report it to our discord server</span>
+        <span style="color: white;"
+          >Mineweb snapshot 20w21a public test build 2</span
+        >
+        <span style="color: white;"
+          >|Version number:58|Minecraft_version: 1.12.2|Version date:28/04/2020
+          11:24pm(GMT+03:00)|node:v10.15.3</span
+        >
+        <br />
+        <span style="color: white;"
+          >Don't forget to join our
+          <a href="https://discord.gg/zSxsc9F">Discord Server</a>!</span
+        >
+        <span style="color: white;"
+          >if a texture is corrupt, please report it to our discord server</span
+        >
       </div>
     </center>
     <ul id="chat">
       <li>
         <span style="color: white;">
-          Thanks for using mineweb dev! In here you can use the chat! <br>You can
-          write a message by pressing the t key! if game dosent open;look at <a href="https://mineweb.statuspage.io/">our status page</a>
+          Thanks for using mineweb dev! In here you can use the chat! <br />You
+          can write a message by pressing the t key! if game dosent open;look at
+          <a href="https://mineweb.statuspage.io/">our status page</a>
         </span>
-  <div id="music">
-    <audio controls loop autoplay>
-  <source src="https://cdn.discordapp.com/attachments/591647192058691584/704708576785989722/Minecraft_Theme_-_Chill_Trap_Remix_No_Copyright_Royalty_Free_Minecraft_Music.mp3" type="audio/ogg">
-  <source src="https://cdn.discordapp.com/attachments/591647192058691584/704708576785989722/Minecraft_Theme_-_Chill_Trap_Remix_No_Copyright_Royalty_Free_Minecraft_Music.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-    </div>
-
+        <div id="music">
+          <audio controls loop autoplay>
+            <source
+              src="https://cdn.discordapp.com/attachments/591647192058691584/704708576785989722/Minecraft_Theme_-_Chill_Trap_Remix_No_Copyright_Royalty_Free_Minecraft_Music.mp3"
+              type="audio/ogg"
+            />
+            <source
+              src="https://cdn.discordapp.com/attachments/591647192058691584/704708576785989722/Minecraft_Theme_-_Chill_Trap_Remix_No_Copyright_Royalty_Free_Minecraft_Music.mp3"
+              type="audio/mpeg"
+            />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
       </li>
     </ul>
   </body>
