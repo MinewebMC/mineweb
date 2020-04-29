@@ -25,6 +25,7 @@ const styles = {
 export function addChatEvents() {
   // Show chat
   document.getElementById('chat').style.display = 'block'
+  document.getElementById('chatinput').style.display = 'block'
   
   const client = getClient();
   // listen for key

@@ -62,6 +62,26 @@
         padding: 0;
         display: none;
       }
+      #chatinput {
+        z-index: 9999;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        position: fixed;
+        width: 34.9%;
+        height: 2%;
+        overflow: auto;
+        background-color: grey;
+        opacity: 0.9;
+        bottom: 5px;
+        list-style-type: none;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+      }
       #beta {
         z-index: 9999;
         position: fixed;
@@ -141,14 +161,7 @@
         >
       </div>
     </center>
-    <ul id="chat">
-      <li>
-        <span style="color: white;">
-          Thanks for using mineweb dev! In here you can use the chat! <br />You
-          can write a message by pressing the t key! if game dosent open;look at
-          <a href="https://mineweb.statuspage.io/">our status page</a>
-        </span>
-        <div id="music">
+    <div id="music">
           <audio controls loop autoplay>
             <source
               src="https://cdn.discordapp.com/attachments/591647192058691584/704708576785989722/Minecraft_Theme_-_Chill_Trap_Remix_No_Copyright_Royalty_Free_Minecraft_Music.mp3"
@@ -161,7 +174,15 @@
             Your browser does not support the audio element.
           </audio>
         </div>
+    <ul id="chat">
+      <li>
+        <span style="color: white;">
+          Thanks for using mineweb dev! In here you can use the chat! <br />You
+          can write a message by pressing the t key! if game dosent open;look at
+          <a href="https://mineweb.statuspage.io/">our status page</a>
+        </span>
       </li>
     </ul>
+    <input id="chatinput" type="text" value="Put here your message in!">
   </body>
 </html>
