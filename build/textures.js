@@ -1,4 +1,4 @@
-/* global noa*/
+/* global noa */
 
 const mcData = require("minecraft-data")("1.12.2");
 
