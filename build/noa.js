@@ -102,6 +102,7 @@ export function startNoa(noaOpts, moveOpts) {
   noa.rendering._camera.fov += 0.4; // Increase FoV
 
   noa.on("tick", function(dt) {
+    console.log(noa.inputs.disabled)
     var playerPos = noa.ents.getPosition(noa.playerEntity);
     updatePosition(playerPos[0], playerPos[1], playerPos[2]);
     // bot.setControlState('forward', noa.inputs.state.forward);

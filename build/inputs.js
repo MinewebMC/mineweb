@@ -1,12 +1,8 @@
 import { addChatEvents } from "./chat.js";
-let inputs;
-export function getInputs() {
-  return inputs;
-}
-export function bindInputs(noa) {
-  inputs = require("game-inputs")(noa.container.element);
 
-  console.log(inputs);
+export function bindInputs(noa) {
+  let inputs = require("game-inputs")(noa.container.element);
+  inputs.disabled = true
 
   inputs.bind("move-forward", "W", "<up>");
   inputs.bind("move-left", "A", "<left>");
