@@ -1,7 +1,10 @@
 import { addChatEvents } from "./chat.js";
-
+let inputs;
+export function getInputs() {
+  return inputs;
+}
 export function bindInputs(noa) {
-  var inputs = require("game-inputs")(noa.container.element);
+  inputs = require("game-inputs")(noa.container.element);
 
   console.log(inputs);
 

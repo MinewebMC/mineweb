@@ -1,4 +1,5 @@
 import { getClient } from "./protocol.js";
+import { getInputs } from "./inputs.js"
 
 const styles = {
   black: "color:#000000",
@@ -32,10 +33,23 @@ export function addChatEvents() {
   document.onkeypress = function(e) {
     e = e || window.event;
     if (e.code === "KeyT") {
-      let msg = prompt("Send A Message"); // TODO: Move to input
-      getClient().write("chat", { message: msg });
+      document.exitPointerLock();
+      getInputs().disabled = true;
+      // 
+    } else if (e.code === 'Enter') {
+      getClient().write("chat", { message: document.getElementById('chatinput').value });
+      document.getElementById('chatinput').value = ''
     }
   };
+  // Enable inputs back when focused
+  document.addEventListener('pointerlockchange', function(event) {
+    const canvas = document.getElementById('noa-canvas')
+    if (document.pointerLockElement === canvas || document.mozPointerLockElement === canvas) {
+      getInputs().disabled = false;
+    }
+  });
+  
+  
   // Client part
 
   client.on("chat", function(packet) {
