@@ -30,24 +30,28 @@ export function addChatEvents() {
   const client = getClient();
 
   let inChat = false;
+  // Esc event - Doesnt work with onkeypress?!
+  document.onkeydown = function(e) {
+    if (!inChat) return;
+    e = e || window.event;
+    if (e.keyCode === 27 || e.key === "Escape" || e.key === "Esc") {
+      disableChat()
+    }
+  };
+  
+  
+  // Chat events
   document.onkeypress = function(e) {
     e = e || window.event;
     if (e.code === "KeyT" && inChat === false) {
       enableChat();
       return false;
-      //
-    } else if (e.code === "Enter" ||) {
+    } else if (e.code === "Enter") {
       if (!inChat) return;
       getClient().write("chat", {
         message: document.getElementById("chatinput").value
       });
       disableChat();
-      // console.log(getNoa().inputs.disabled);
-
-      // document.getElementById("chatinput").value = "";
-      // document.getElementById("chatinput").blur();
-    } else if (e.keyCode === 27 || e.key === "Escape" || e.key === "Esc" || e.co) {
-      disableChat()
     }
   };
   // Enable inputs back when focused
