@@ -46,7 +46,9 @@
         text-shadow: 1px 1px 0px black;
         text-align: center;
       }
-
+      #chat::-webkit-scrollbar {
+        display: none;
+      }
       #chat {
         z-index: 9999;
         -webkit-touch-callout: none;
@@ -54,18 +56,18 @@
         -khtml-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
+        -ms-overflow-style: none;
         user-select: none;
         position: fixed;
         width: 35%;
         height: 41%;
         overflow: auto;
-        background-color: grey;
-        opacity: 0.9;
+        background-color: rgba(0, 0, 0, 0.5);
         bottom: 40px;
         list-style-type: none;
         text-align: left;
         margin: 0;
-        padding: 0;
+        padding: 0 8px;
         display: none;
         font-family: "MinecraftiaRegular";
         font-style: normal;
@@ -98,8 +100,8 @@
         position: fixed;
         top: 0px;
         width: 100%;
-        font-family: "MinecraftiaRegular";
-        font-size: xx-small;
+     
+         font-size: x-medium;
       }
       #music {
         display: none;

@@ -104,7 +104,7 @@ export function addChatEvents() {
     console.log(packet);
     let fullmessage = JSON.parse(packet.message.toString());
     let msglist = [];
-    if (fullmessage.extra.length > 0) {
+    if (fullmessage && fullmessage.extra.length > 0) {
       for (var i in fullmessage.extra) {
         if (fullmessage.extra[i].text) {
           msglist.push({
