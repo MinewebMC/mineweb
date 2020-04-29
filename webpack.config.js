@@ -4,7 +4,6 @@ const path = require("path");
 module.exports = {
   mode: "development",
   entry: "./build/main.js",
-  watch: true,
   output: {
     filename: "bundle.js"
   },

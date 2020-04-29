@@ -30,17 +30,18 @@ export function registerTextures(noa) {
       var textureURL = null;
     }
     console.log("TexURL:", textureURL);
-    if (i == 2) { // Dirt
-      
+    if (i == 3) { // Dirt
+      noa.registry.registerBlock(i, { material: "dirt" });
     } else {
-    noa.registry.registerMaterial(
-      i.toString(),
-      [Math.random(), Math.random(), Math.random()],
-      "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.12.2/assets/minecraft/textures/" +
-        textureURL +
-        ".png"
-    ); // Random colours
-    noa.registry.registerBlock(i, { material: i.toString() });
+      noa.registry.registerMaterial(
+        i.toString(),
+        [Math.random(), Math.random(), Math.random()],
+        "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.12.2/assets/minecraft/textures/" +
+          textureURL +
+          ".png"
+      ); // Random colours
+      noa.registry.registerBlock(i, { material: i.toString() });
+    }
 
     // } else {
     //  noa.registry.registerMaterial(i.toString(), [Math.random(), Math.random(), Math.random()], ["https://classic.modded.repl.co/assets/textures/grass.png", "https://classic.modded.repl.co/assets/textures/dirt.png", "https://classic.modded.repl.co/assets/textures/grass_dirt.png"]) // Random colours

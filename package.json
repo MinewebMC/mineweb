@@ -19,8 +19,8 @@
     "@babylonjs/core": "^4.1.0"
   },
   "scripts": {
-    "compile": "npx webpack",
-    "start": "echo Restart && node server/server.js & npx webpack --progress --watch ",
+    "build": "npx webpack",
+    "starttt": "echo Restart && node server/server.js & npx webpack --progress --watch ",
     "startt": "npx webpack --progress --watch & node server/server.js"
   },
   "repository": {
