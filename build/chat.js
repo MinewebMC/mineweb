@@ -1,5 +1,5 @@
 import { getClient } from "./protocol.js";
-import { getInputs } from "./inputs.js"
+import { getNoa } from "./noa.js"
 
 const styles = {
   black: "color:#000000",
@@ -29,14 +29,19 @@ export function addChatEvents() {
   document.getElementById('chatinput').style.display = 'block'
   
   const client = getClient();
+  
+  let inChat = false;
   // listen for key
   document.onkeypress = function(e) {
     e = e || window.event;
     if (e.code === "KeyT") {
       document.exitPointerLock();
-      getInputs().disabled = true;
+      getNoa().inputs.disabled = true;
+      inChat = true;
       // 
     } else if (e.code === 'Enter') {
+      if (!inChat) return;
+      console.log(getNoa().inputs.disabled)
       getClient().write("chat", { message: document.getElementById('chatinput').value });
       document.getElementById('chatinput').value = ''
     }
@@ -44,8 +49,9 @@ export function addChatEvents() {
   // Enable inputs back when focused
   document.addEventListener('pointerlockchange', function(event) {
     const canvas = document.getElementById('noa-canvas')
-    if (document.pointerLockElement === canvas || document.mozPointerLockElement === canvas) {
-      getInputs().disabled = false;
+    if (document.pointerLockElement === canvas || document.mozPointerLockElement === canvas) { // Back in game, enable inputs bcak
+      inChat = false;
+      getNoa().inputs.disabled = false;
     }
   });
   
