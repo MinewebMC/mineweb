@@ -7,9 +7,8 @@
     ],
     "include": [
       "server/",
-      "server.js",
-      "index.html"
+      "server.js"
     ]
   },
-  "throttle": 100
+  "throttle": 1000
 }

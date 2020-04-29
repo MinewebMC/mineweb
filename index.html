@@ -113,7 +113,11 @@
     <script type="text/javascript" src="dist/babylon.js"></script>
     <script type="text/javascript" src="dist/bundle.js"></script>
     <script>
+      // TODO POPUP TO DISABLE CTRL+W
       window.onbeforeunload = function() {
+        setTimeout(function() {
+          console.log('Showup a popup with en explenation how to disable CTRL+W')
+        }, 1);
         return true;
       };
     </script>
