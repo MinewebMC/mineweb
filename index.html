@@ -17,6 +17,12 @@
       name="viewport"
       content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org/face/minecraftia"
+      type="text/css"
+    />
     <style type="text/css">
       body {
         background-color: white;
@@ -61,6 +67,8 @@
         margin: 0;
         padding: 0;
         display: none;
+        font-family: "MinecraftiaRegular";
+        font-style: normal;
       }
       #chatinput {
         z-index: 9999;
@@ -81,6 +89,8 @@
         text-align: left;
         margin: 0;
         padding: 0;
+        font-family: "MinecraftiaRegular";
+        font-style: normal;
       }
       #beta {
         z-index: 9999;
@@ -100,7 +110,7 @@
     need to choose a nickname. if the nickname selection screen is not
     displayed, press f5. <br />
     having problems? go the
-    <a href="https://mineweb.statuspage.io/">Service Status</a>
+    <a href="https://mineweb.statuspage.io/" target="_blank">Service Status</a>
   </div>
   <!---
   <div class="separator" style="clear: both; text-align: center;">
@@ -137,7 +147,9 @@
       // TODO POPUP TO DISABLE CTRL+W
       window.onbeforeunload = function() {
         setTimeout(function() {
-          console.log('Showup a popup with en explenation how to disable CTRL+W')
+          console.log(
+            "Showup a popup with en explenation how to disable CTRL+W"
+          );
         }, 1);
         return true;
       };
@@ -154,7 +166,8 @@
         <br />
         <span style="color: white;"
           >Don't forget to join our
-          <a href="https://discord.gg/zSxsc9F">Discord Server</a>!</span
+          <a href="https://discord.gg/zSxsc9F" target="_blank">Discord Server</a
+          >!</span
         >
         <span style="color: white;"
           >if a texture is corrupt, please report it to our discord server</span
@@ -162,27 +175,31 @@
       </div>
     </center>
     <div id="music">
-          <audio controls loop autoplay>
-            <source
-              src="https://cdn.discordapp.com/attachments/591647192058691584/704708576785989722/Minecraft_Theme_-_Chill_Trap_Remix_No_Copyright_Royalty_Free_Minecraft_Music.mp3"
-              type="audio/ogg"
-            />
-            <source
-              src="https://cdn.discordapp.com/attachments/591647192058691584/704708576785989722/Minecraft_Theme_-_Chill_Trap_Remix_No_Copyright_Royalty_Free_Minecraft_Music.mp3"
-              type="audio/mpeg"
-            />
-            Your browser does not support the audio element.
-          </audio>
-        </div>
+      <audio controls loop autoplay>
+        <source
+          src="https://cdn.discordapp.com/attachments/591647192058691584/704708576785989722/Minecraft_Theme_-_Chill_Trap_Remix_No_Copyright_Royalty_Free_Minecraft_Music.mp3"
+          type="audio/ogg"
+        />
+        <source
+          src="https://cdn.discordapp.com/attachments/591647192058691584/704708576785989722/Minecraft_Theme_-_Chill_Trap_Remix_No_Copyright_Royalty_Free_Minecraft_Music.mp3"
+          type="audio/mpeg"
+        />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
     <ul id="chat">
       <li>
         <span style="color: white;">
           Thanks for using mineweb dev! In here you can use the chat! <br />You
-          can write a message by pressing the t key! if game dosent open;look at
-          <a href="https://mineweb.statuspage.io/">our status page</a>
+          can write a message by pressing the T key! Issues?
+          <a href="https://mineweb.statuspage.io/" target="_blank"
+            >Status page</a
+          >
+          or
+          <a href="https://discord.gg/zSxsc9F" target="_blank">our Discord.</a>
         </span>
       </li>
     </ul>
-    <input id="chatinput" type="text" value="Put here your message in!">
+    <input id="chatinput" type="text" value="Put here your message in!" />
   </body>
 </html>

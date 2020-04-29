@@ -38,6 +38,7 @@ export function addChatEvents() {
       document.exitPointerLock();
       getNoa().inputs.disabled = true;
       inChat = true;
+      document.getElementById("chatinput").focus(); 
       // 
     } else if (e.code === 'Enter') {
       if (!inChat) return;
