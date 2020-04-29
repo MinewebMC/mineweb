@@ -3,6 +3,24 @@
 const mcData = require("minecraft-data")("1.12.2");
 
 export function registerTextures(noa) {
+  noa.registry.registerMaterial(
+      "dirt",
+      [Math.random(), Math.random(), Math.random()],
+      "https://mineweb-dev.glitch.me/textures/dirt.png"
+    ); // Random colours
+  
+    noa.registry.registerMaterial(
+      "grass_top",
+      [Math.random(), Math.random(), Math.random()],
+      "https://mineweb-dev.glitch.me/textures/grass_top.png"
+    ); // Random colours
+  
+    noa.registry.registerMaterial(
+      "grass_side",
+      [Math.random(), Math.random(), Math.random()],
+      "https://mineweb-dev.glitch.me/textures/grass_side.png"
+    ); // Random colours
+  
   for (var i = 1; i < 256; i++) {
     try {
       var textureURL = data.filter(function(block) {
@@ -12,7 +30,9 @@ export function registerTextures(noa) {
       var textureURL = null;
     }
     console.log("TexURL:", textureURL);
-    // if (i == 2) { // Grass
+    if (i == 2) { // Dirt
+      
+    } else {
     noa.registry.registerMaterial(
       i.toString(),
       [Math.random(), Math.random(), Math.random()],
