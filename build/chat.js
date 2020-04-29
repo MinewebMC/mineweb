@@ -26,7 +26,6 @@ export function addChatEvents() {
   const client = getClient();
   // listen for key
   document.onkeypress = function(e) {
-    console.log(e.code);
     e = e || window.event;
     if (e.code === "KeyT") {
       let msg = prompt("Send A Message"); // TODO: Move to input

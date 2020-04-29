@@ -14,7 +14,16 @@ export function getClient() {
 }
 export function login(clientOpts, noaOpts, moveOpts) {
   client = mc.createClient(clientOpts);
-
+  document.addEventListener('pointerlockchange', function(event) {
+    const canvas = window
+    if (document.pointerLockElement === canvas || document.mozPointerLockElement === canvas) {
+      console.log('The pointer lock status is now locked');
+      document.addEventListener("mousemove", updatePosition, false);
+    } else {
+      console.log('The pointer lock status is now unlocked');
+      document.removeEventListener("mousemove", updatePosition, false);
+    }
+  });
   client.on("login", function() {
     startNoa(noaOpts, moveOpts);
     addChatEvents();

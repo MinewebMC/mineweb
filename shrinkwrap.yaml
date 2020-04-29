@@ -3427,6 +3427,7 @@ packages:
     prepare: true
     requiresBuild: true
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/ProtoDef-io/node-protodef/tar.gz/c80b48db2d1e497bf9d9b24887d97b924a67b724'
     version: 1.6.10
   github.com/andyhall/aabb-3d/6b0fb3ce72d4e8e5e8fb3e4b3581a194d952b8fa:
@@ -3465,4 +3466,4 @@ specifiers:
   protodef: 'github:ProtoDef-io/node-protodef#master'
   webpack: ^4.43.0
   webpack-cli: ^3.3.11
-  ws: '>=1.1.5'
+  ws: ^7.2.5
