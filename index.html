@@ -1,42 +1,217 @@
 <!-- <script type="text/javascript" src="dist/bundle.js"></script> !-->
 
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Mineweb</title>
+    <link
+      rel="icon"
+      href="https://cdn.discordapp.com/attachments/620134540903710733/704341035391909968/menu-buy.png"
+    />
+    <meta
+      name="description"
+      content="Mineweb is a minecraft client powered by noa and node-minecraft-protocol"
+    />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org/face/minecraftia"
+      type="text/css"
+    />
+    <style type="text/css">
+      body {
+        background-color: white;
+        margin: 0px;
+        overflow: hidden;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
 
-<head>
-  <title>noa-hello-world</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-  <style type="text/css">
-    body {
-      background-color: white;
-      margin: 0px;
-      overflow: hidden;
-      -moz-user-select: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-    }
+      #reticle {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        margin: -10px 0 0 -10px;
+        z-index: 99;
+        color: white;
+        text-shadow: 1px 1px 0px black;
+        text-align: center;
+      }
+      #chat::-webkit-scrollbar {
+        display: none;
+      }
+      #chat {
+        z-index: 9999;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -ms-overflow-style: none;
+        user-select: none;
+        position: fixed;
+        /* width: 35%; */
+        width: 640px;
+        height: 40%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+        bottom: 42px;
+        list-style-type: none;
+        text-align: left;
+        margin: 0;
+        padding: 0 8px;
+        display: none;
+        font-family: "MinecraftiaRegular";
+        font-style: normal;
+        word-spacing: -0.21px; /* Makes it look right */
+        font-size: 16px;
+      }
+      #chatinput {
+        z-index: 9999;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        position: fixed;
+        /* width: 35%; */
+        width: 640px;
+        height: 2%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* opacity: 0.9; */
+        bottom: 5px;
+        list-style-type: none;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        font-family: "MinecraftiaRegular";
+        font-style: normal;
+        display: none;
+        padding: 7px 8px 8px 8px;
+        border: none;
+        outline: none;
+        color: white;
+      }
+      #beta {
+        z-index: 9999;
+        position: fixed;
+        top: 0px;
+        width: 100%;
 
-    #reticle {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 20px;
-      height: 20px;
-      line-height: 20px;
-      margin: -10px 0 0 -10px;
-      z-index: 99;
-      color: white;
-      text-shadow: 1px 1px 0px black;
-      text-align: center;
-    }
-  </style>
-</head>
+        font-size: x-medium;
+      }
+      #music {
+        display: none;
+      }
+    </style>
+  </head>
 
-<body>
-  <div id="reticle">+</div>
-  <script type="text/javascript" src="dist/babylon.js"></script>
-  <script type="text/javascript" src="dist/bundle.js"></script>
-</body>
+  <div id="loading" class="separator" style="clear: both; text-align: center;">
+    Connecting to the server...
+    <br />Please Wait.
+    <!-- it takes an average of 30 seconds. ??? It doesn't tkae that long... !-->
+    To open the game, you need to choose a nickname. if the nickname selection
+    screen is not displayed, press F5. <br />
+    Having problems? Go to the
+    <a href="https://mineweb.statuspage.io/" target="_blank">Service Status</a>
+  </div>
+  <!---
+  <div class="separator" style="clear: both; text-align: center;">
+    <div style="text-align: center;">
+      Are you having connection problems?&nbsp;
+    </div>
+    <div class="separator" style="clear: both; text-align: center;">
+      <a href="https://mineweb.glitch.me/">Refresh page </a>or view
+      <a href="https://mineweb.statuspage.io/">our status page</a>
+    </div>
+    <br />
+    <div class="separator" style="clear: both; text-align: center;">
+      Powered by <a href="https://github.com/andyhall/noa">noa</a> and
+      <a href="https://github.com/PrismarineJS/node-minecraft-protocol"
+        >node-minecraft-protocol</a
+      >
+    </div>
+    
 
+    <div class="separator" style="clear: both; text-align: center;">
+      <br />
+    </div>
+    <div class="separator" style="clear: both; text-align: center;"></div>
+  </div>
+  
+
+-->
+  <body>
+    <div id="reticle">+</div>
+    <noscript>Sadly.... You need javascript... And you dont have that :(... We recommend to use Chrome.</noscript>
+    <script type="text/javascript" src="dist/babylon.js"></script>
+    <script type="text/javascript" src="dist/bundle.js"></script>
+    <script>
+      // TODO POPUP TO DISABLE CTRL+W
+      window.onbeforeunload = function() {
+        setTimeout(function() {
+          console.log(
+            "Showup a popup with en explenation how to disable CTRL+W"
+          );
+        }, 1);
+        return true;
+      };
+    </script>
+    <center>
+      <div id="beta">
+        <span style="color: white;">Mineweb snapshot 20w21b</span>
+        <span style="color: white;"
+          >|Version number:59|Minecraft_version: 1.12.2|Version date:29/04/2020
+          03:50pm(GMT+03:00)|node:v10.15.3</span
+        >
+        <br />
+        <span style="color: white;"
+          >Don't forget to join our
+          <a href="https://discord.gg/zSxsc9F" target="_blank">Discord Server</a
+          >!</span
+        >
+        <span style="color: white;"
+          >if a texture is corrupt, please report it to our discord server</span
+        >
+      </div>
+    </center>
+    <!-- Copyrighted! <div id="music">
+      <audio controls loop autoplay>
+        <source
+          src="https://cdn.discordapp.com/attachments/591647192058691584/704708576785989722/Minecraft_Theme_-_Chill_Trap_Remix_No_Copyright_Royalty_Free_Minecraft_Music.mp3"
+          type="audio/ogg"
+        />
+        <source
+          src="https://cdn.discordapp.com/attachments/591647192058691584/704708576785989722/Minecraft_Theme_-_Chill_Trap_Remix_No_Copyright_Royalty_Free_Minecraft_Music.mp3"
+          type="audio/mpeg"
+        />
+        Your browser does not support the audio element.
+      </audio>
+    </div> !-->
+    <ul id="chat">
+      <li>
+        <span style="color: white;">
+          Thanks for using Mineweb Dev! In here you can use the chat! <br />You
+          can write a message by pressing the T key! Issues?
+          <a href="https://mineweb.statuspage.io/" target="_blank"
+            >Status page</a
+          >
+          or
+          <a href="https://discord.gg/zSxsc9F" target="_blank">our Discord.</a>
+        </span>
+      </li>
+    </ul>
+    <input id="chatinput" type="text" value="" />
+  </body>
 </html>
