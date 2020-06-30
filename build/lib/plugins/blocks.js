@@ -43,7 +43,7 @@ export function init(mineweb) {
     }
   });
 
-  client.on("unload_chunk", function(packet) { // found it in an issue, if basicly reports everything from what is loaded what is known what is going to be unloaded etc https://github.com/andyhall/noa/issues/94#issuecomment-575972591
+  mineweb._client.on("unload_chunk", function(packet) { // found it in an issue, if basicly reports everything from what is loaded what is known what is going to be unloaded etc https://github.com/andyhall/noa/issues/94#issuecomment-575972591
    // noa.world.report() // Getting lag spikes when the report comes
     
     console.log("Unload packet!", packet);
