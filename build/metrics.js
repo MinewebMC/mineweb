@@ -1,3 +1,4 @@
+/*
 var http = require('http'); // var is broke? HTTP might not work in the browser
  // but we need http 
 // its for our statuspage metric
@@ -48,4 +49,4 @@ function submit(count) {
  
 // Initial call to start submitting data.
 submit(0);
-  
+*/
