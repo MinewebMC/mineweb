@@ -85,6 +85,7 @@ export class Mineweb {
       this._noa.ents.names.movement,
       moveOpts
     );
+    this._noa.world.manuallyControlChunkLoading = true;
 
     bindInputs(this);
     setEventInputs(this);
