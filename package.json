@@ -8,16 +8,16 @@
     "minecraft-data": "^2.46.0",
     "minecraft-protocol": "github:Heath123/node-minecraft-protocol#master",
     "net-browserify": "^0.2.4",
-    "noa-engine": "^0.28.0",
+    "noa-engine": "github:andyhall/noa#develop",
     "prismarine-chunk": "^1.14.0",
     "protodef": "github:ProtoDef-io/node-protodef#master",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
     "ws": "^7.2.5"
   },
   "devDependencies": {
     "@babylonjs/core": "^4.1.0",
-    "google-closure-compiler": "^20200406.0.0"
+    "google-closure-compiler": "^20200406.0.0",
+    "webpack-cli": "^3.3.12"
   },
   "scripts": {
     "build": "npx webpack",
