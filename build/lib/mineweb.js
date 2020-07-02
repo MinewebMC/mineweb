@@ -103,7 +103,7 @@ export class Mineweb {
 
     this._noa.world.on("worldDataNeeded", function(id, data, x, y, z) {
       // window.setTimeout(function() { // Just testing
-      // console.log("needed: " + `${x / 16}|${y / 16}|${z / 16}`, id);
+      console.log("needed: " + `${x / 16}|${y / 16}|${z / 16}`, id);
       // console.log(chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`]);
       if (typeof chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`] == "undefined") {
         console.log("Chunk not found:", `${x / 16}|${y / 16}|${z / 16}`);
