@@ -106,9 +106,7 @@ export class Mineweb {
       // console.log("needed: " + `${x / 16}|${y / 16}|${z / 16}`, id);
       // console.log(chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`]);
       if (typeof chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`] == "undefined") {
-        // If it isn't a chunk that needs to be loaded
-        delete self._noa.world._chunkIDsPending[`${x / 16}|${y / 16}|${z / 16}`];
-        // console.log("Chunk not found:", `${x / 16}|${y / 16}|${z / 16}`);
+        console.log("Chunk not found:", `${x / 16}|${y / 16}|${z / 16}`);
       } else {
         for (var i = 0; i < data.shape[0]; i++) {
           for (var j = 0; j < data.shape[1]; j++) {
