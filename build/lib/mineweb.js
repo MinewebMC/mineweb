@@ -100,45 +100,50 @@ export class Mineweb {
     //   if (y < height) return grassID;
     //   return 0; // signifying empty space
     // }
+    
+    
+    
+    // COMMENTED OUT
 
-    this._noa.world.on("worldDataNeeded", function(id, data, x, y, z) {
-      // window.setTimeout(function() { // Just testing
-      console.log("needed: " + `${x / 16}|${y / 16}|${z / 16}`, id);
-      // console.log(chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`]);
-      if (typeof chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`] == "undefined") {
-        console.log("Chunk not found:", `${x / 16}|${y / 16}|${z / 16}`);
-      } else {
-        for (var i = 0; i < data.shape[0]; i++) {
-          for (var j = 0; j < data.shape[1]; j++) {
-            for (var k = 0; k < data.shape[2]; k++) {
-              var voxelID = chunksToLoad[
-                `${x / 16}|${y / 16}|${z / 16}`
-              ].getBlock(new Vec3(k, y + j, i)).type; // x and z are reversed because otherwise it looks wrong
-              // console.log("ID:", voxelID);
-              /* if (voxelID.type == 0) {
-              voxelID = 0;
-            } else {
-              voxelID = 1;
-            } */
-              // var voxelID = getVoxelID(x + i, y + j, z + k)
-              data.set(i, j, k, voxelID);
-            }
-          }
-        }
-        self._noa.world.setChunkData(id, data);
-      }
-      // noa.world._chunkIDsPending = []; // So noa isn't expecting to recieve chunk data when it never will
-      /*for (var i = 0; i < data.shape[0]; i++) {
-          for (var j = 0; j < data.shape[1]; j++) {
-              for (var k = 0; k < data.shape[2]; k++) {
-                  var voxelID = getVoxelID(x + i, y + j, z + k)
-                  data.set(i, j, k, voxelID)
-              }
-          }
-      }
-      // noa.world.setChunkData(id, data) */
-      // }, 1000);
-    });
+    // this._noa.world.on("worldDataNeeded", function(id, data, x, y, z) {
+    //   // window.setTimeout(function() { // Just testing
+    //   console.log("needed: " + `${x / 16}|${y / 16}|${z / 16}`, id);
+    //   // console.log(chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`]);
+    //   if (typeof chunksToLoad[`${x / 16}|${y / 16}|${z / 16}`] == "undefined") {
+    //     console.log("Chunk not found:", `${x / 16}|${y / 16}|${z / 16}`);
+    //   } else {
+    //     for (var i = 0; i < data.shape[0]; i++) {
+    //       for (var j = 0; j < data.shape[1]; j++) {
+    //         for (var k = 0; k < data.shape[2]; k++) {
+    //           var voxelID = chunksToLoad[
+    //             `${x / 16}|${y / 16}|${z / 16}`
+    //           ].getBlock(new Vec3(k, y + j, i)).type; // x and z are reversed because otherwise it looks wrong
+    //           // console.log("ID:", voxelID);
+    //           /* if (voxelID.type == 0) {
+    //           voxelID = 0;
+    //         } else {
+    //           voxelID = 1;
+    //         } */
+    //           // var voxelID = getVoxelID(x + i, y + j, z + k)
+    //           data.set(i, j, k, voxelID);
+    //         }
+    //       }
+    //     }
+    //     self._noa.world.setChunkData(id, data);
+    //   }
+    //   // noa.world._chunkIDsPending = []; // So noa isn't expecting to recieve chunk data when it never will
+    //   /*for (var i = 0; i < data.shape[0]; i++) {
+    //       for (var j = 0; j < data.shape[1]; j++) {
+    //           for (var k = 0; k < data.shape[2]; k++) {
+    //               var voxelID = getVoxelID(x + i, y + j, z + k)
+    //               data.set(i, j, k, voxelID)
+    //           }
+    //       }
+    //   }
+    //   // noa.world.setChunkData(id, data) */
+    //   // }, 1000);
+    // }); 
+    
 
     var player = this._noa.playerEntity;
     var dat = this._noa.entities.getPositionData(player);
