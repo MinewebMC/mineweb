@@ -3,7 +3,7 @@ dependencies:
   minecraft-data: 2.46.0
   minecraft-protocol: github.com/Heath123/node-minecraft-protocol/294014491b8188ff7d8a45dc337d935b32ec5983
   net-browserify: 0.2.4
-  noa-engine: 0.28.0
+  noa-engine: github.com/andyhall/noa/6e481cfae0e39e1b3d9f5c89897da647c7d280f2
   prismarine-chunk: 1.14.0
   protodef: github.com/ProtoDef-io/node-protodef/c80b48db2d1e497bf9d9b24887d97b924a67b724
   webpack: 4.43.0
@@ -11,7 +11,6 @@ dependencies:
   ws: 7.2.5
 devDependencies:
   '@babylonjs/core': 4.1.0
-  google-closure-compiler: 20200406.0.0
 packages:
   /@babylonjs/core/4.1.0:
     dependencies:
@@ -206,6 +205,7 @@ packages:
   /ansi-styles/3.2.1:
     dependencies:
       color-convert: 1.9.3
+    dev: false
     engines:
       node: '>=4'
     resolution:
@@ -528,6 +528,7 @@ packages:
       ansi-styles: 3.2.1
       escape-string-regexp: 1.0.5
       supports-color: 5.5.0
+    dev: false
     engines:
       node: '>=4'
     resolution:
@@ -589,30 +590,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-PYeGSEmmHM6zvoef2w8TPzlrnNpXIjTipYK780YswmIP9vjxmd6Y2a3CB2Ks6/AU8NHjZugXvo8w3oWM2qnwXA==
-  /clone-buffer/1.0.0:
-    dev: true
-    engines:
-      node: '>= 0.10'
-    resolution:
-      integrity: sha1-4+JbIHrE5wGvch4staFnksrD3Fg=
-  /clone-stats/1.0.0:
-    dev: true
-    resolution:
-      integrity: sha1-s3gt/4u1R04Yuba/D9/ngvh3doA=
-  /clone/2.1.2:
-    dev: true
-    engines:
-      node: '>=0.8'
-    resolution:
-      integrity: sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
-  /cloneable-readable/1.1.3:
-    dependencies:
-      inherits: 2.0.4
-      process-nextick-args: 2.0.1
-      readable-stream: 2.3.7
-    dev: true
-    resolution:
-      integrity: sha512-2EF8zTQOxYq70Y4XKtorQupqF0m49MBz2/yf5Bj+MHjvpG3Hy7sImifnqD6UA+TKYxeSV+u6qqQPawN5UvnpKQ==
   /collection-visit/1.0.0:
     dependencies:
       map-visit: 1.0.0
@@ -625,9 +602,11 @@ packages:
   /color-convert/1.9.3:
     dependencies:
       color-name: 1.1.3
+    dev: false
     resolution:
       integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==
   /color-name/1.1.3:
+    dev: false
     resolution:
       integrity: sha1-p9BVi9icQveV3UIyj3QIMcpTvCU=
   /commander/2.1.0:
@@ -713,6 +692,7 @@ packages:
     resolution:
       integrity: sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
   /core-util-is/1.0.2:
+    dev: false
     resolution:
       integrity: sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
   /create-ecdh/4.0.3:
@@ -963,6 +943,7 @@ packages:
     resolution:
       integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
   /escape-string-regexp/1.0.5:
+    dev: false
     engines:
       node: '>=0.8.0'
     resolution:
@@ -1265,12 +1246,12 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-Ggd/Ktt7E7I8pxZRbGIs7vwqAPscSESMrCSkx2FtWeqmheJgCo2R74fTsZFCifr0VTPwqRpPv17+6b8Zp7th0Q==
-  /game-inputs/0.3.1:
+  /game-inputs/0.4.0:
     dependencies:
       vkey: 1.0.1
     dev: false
     resolution:
-      integrity: sha512-6ZpCEzRgjMvBj2M66zgqriSFGqycvLyDRkajCHwfuv8souAAQwbwrNfzrZqSAH8VrTBKhYU9f2KkvuTEqm3+lA==
+      integrity: sha512-r+RgGaLf2lve00pPssf8EXMOfyswpZW6dqS9PFQZzHjNQFceU5EHAUgp1Y77ou34rpqtQaJVG+BXNC2zaVvy9Q==
   /get-caller-file/2.0.5:
     dev: false
     engines:
@@ -1353,67 +1334,12 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-awConJSVCHVGND6x3tmMaKcQvwXLhjdkmomy2W+Goaui8YPgYgXJZewhg3fWC+DlfqqQuWg8AwqjGTD2nAPVWg==
-  /google-closure-compiler-java/20200406.0.0:
-    dev: true
-    resolution:
-      integrity: sha512-07WM/06CgQ0T2ZtSitfl+jmpeXW+c+spZgEgekJxEauzZztruYSkkBAHK8bZQ0N0+ZGfIUyQFNhLu//vxb5EJg==
-  /google-closure-compiler-js/20200406.0.0:
-    dev: true
-    resolution:
-      integrity: sha512-4qsr9VwjpSfoGt84bRAwDAcUlyYodZ9iywVMQwWzCu+SziCNXLFhUWkfLqTXbOYRSwO94UadwERSBdoPZY/GrA==
-  /google-closure-compiler-linux/20200406.0.0:
-    cpu:
-      - x64
-      - x86
-    dev: true
-    optional: true
-    os:
-      - linux
-    resolution:
-      integrity: sha512-5NiU/jAjeMVJ7xm1KBDttE863lF7ItEqxg5Z1Vg/QMabTZz6Rr5S0Qy4hP+wjMfBnmqcL10BjXKJP5/m+doSbA==
-  /google-closure-compiler-osx/20200406.0.0:
-    cpu:
-      - x64
-      - x86
-    dev: true
-    optional: true
-    os:
-      - darwin
-    resolution:
-      integrity: sha512-XSF1l7GANVHnp2w8AGhhGDL3gw+XV3RaJvA7GsOJUmplPHguwlNvcLMEnSit7AEDa0JYdaQ50dfATwIKm6k8BQ==
-  /google-closure-compiler-windows/20200406.0.0:
-    cpu:
-      - x64
-      - x86
-    dev: true
-    optional: true
-    os:
-      - win32
-    resolution:
-      integrity: sha512-F7mSN06PrjWYrD9cTkCcNwJXyoYmcwAMrJGgFvmm04Nb7TDQRK6yVqXwrEkncGMuiymD+B1vsoCzUJ/GlQVf0Q==
-  /google-closure-compiler/20200406.0.0:
-    dependencies:
-      chalk: 2.4.2
-      google-closure-compiler-java: 20200406.0.0
-      google-closure-compiler-js: 20200406.0.0
-      minimist: 1.2.5
-      vinyl: 2.2.0
-      vinyl-sourcemaps-apply: 0.2.1
-    dev: true
-    engines:
-      node: '>=8'
-    hasBin: true
-    optionalDependencies:
-      google-closure-compiler-linux: 20200406.0.0
-      google-closure-compiler-osx: 20200406.0.0
-      google-closure-compiler-windows: 20200406.0.0
-    resolution:
-      integrity: sha512-CBfXKVeZASKrgWRDJoYKxbZ546Pphld1SP6mN/KXVW4LbtV1wvXauM9wq1X/Y0Cez4Qh8MlU8VHCtLtNZfq17A==
   /graceful-fs/4.2.4:
     dev: false
     resolution:
       integrity: sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
   /has-flag/3.0.0:
+    dev: false
     engines:
       node: '>=4'
     resolution:
@@ -1565,6 +1491,7 @@ packages:
     resolution:
       integrity: sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
   /inherits/2.0.4:
+    dev: false
     resolution:
       integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
   /ini/1.3.5:
@@ -1738,6 +1665,7 @@ packages:
     resolution:
       integrity: sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=
   /isarray/1.0.0:
+    dev: false
     resolution:
       integrity: sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
   /isexe/2.0.0:
@@ -2021,6 +1949,7 @@ packages:
     resolution:
       integrity: sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
   /minimist/1.2.5:
+    dev: false
     resolution:
       integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
   /mississippi/3.0.0:
@@ -2135,23 +2064,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
-  /noa-engine/0.28.0:
-    dependencies:
-      aabb-3d: github.com/andyhall/aabb-3d/6b0fb3ce72d4e8e5e8fb3e4b3581a194d952b8fa
-      box-intersect: 1.0.2
-      ent-comp: 0.9.1
-      fast-voxel-raycast: 0.1.1
-      game-inputs: 0.3.1
-      game-shell: github.com/andyhall/game-shell/5cd78b52c6abb5cc250340c635ea79040b56c966
-      gl-vec3: 1.1.3
-      ndarray: 1.0.19
-      voxel-aabb-sweep: 0.5.0
-      voxel-physics-engine: 0.10.0
-    dev: false
-    peerDependencies:
-      '@babylonjs/core': ^4.0.0
-    resolution:
-      integrity: sha512-DJxZEAGeDt93tk9AZE9TtoQ7+MDp12UxRu5hTp73eYYczCOmmTNrOeX6a2NaWdFjHLbOIlMb2mWcSzituxP3eA==
   /node-libs-browser/2.2.1:
     dependencies:
       assert: 1.5.0
@@ -2458,6 +2370,7 @@ packages:
     resolution:
       integrity: sha512-E2bBd2XzmcynT67zrkucgrC2MIgjmUtUathJ9sfjTswT+ou+7kbHbbLHO3nHLb6TKGiWFH79OfUmBTHJFULpbw==
   /process-nextick-args/2.0.1:
+    dev: false
     resolution:
       integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
   /process/0.11.10:
@@ -2605,6 +2518,7 @@ packages:
       safe-buffer: 5.1.2
       string_decoder: 1.1.1
       util-deprecate: 1.0.2
+    dev: false
     resolution:
       integrity: sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw==
   /readable-stream/3.6.0:
@@ -2637,6 +2551,7 @@ packages:
     resolution:
       integrity: sha512-J6SDjUgDxQj5NusnOtdFxDwN/+HWykR8GELwctJ7mdqhcyy1xEc4SRFHUXvxTp661YaVKAjfRLZ9cCqS6tn32A==
   /remove-trailing-separator/1.1.0:
+    dev: false
     resolution:
       integrity: sha1-wkvOKig62tW8P1jg1IJJuSN52O8=
   /repeat-element/1.1.3:
@@ -2651,12 +2566,6 @@ packages:
       node: '>=0.10'
     resolution:
       integrity: sha1-jcrkcOHIirwtYA//Sndihtp15jc=
-  /replace-ext/1.0.0:
-    dev: true
-    engines:
-      node: '>= 0.10'
-    resolution:
-      integrity: sha1-3mMSg3P8v3w8z6TeWkgMRaZ5WOs=
   /require-directory/2.1.1:
     dev: false
     engines:
@@ -2722,6 +2631,7 @@ packages:
     resolution:
       integrity: sha1-6Eg5bwV9Ij8kOGkkYY4laUFh7Ec=
   /safe-buffer/5.1.2:
+    dev: false
     resolution:
       integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==
   /safe-buffer/5.2.0:
@@ -2903,6 +2813,7 @@ packages:
     resolution:
       integrity: sha1-PpNdfd1zYxuXZZlW1VEo6HtQhKM=
   /source-map/0.5.7:
+    dev: false
     engines:
       node: '>=0.10.0'
     resolution:
@@ -2983,6 +2894,7 @@ packages:
   /string_decoder/1.1.1:
     dependencies:
       safe-buffer: 5.1.2
+    dev: false
     resolution:
       integrity: sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==
   /string_decoder/1.3.0:
@@ -3008,6 +2920,7 @@ packages:
   /supports-color/5.5.0:
     dependencies:
       has-flag: 3.0.0
+    dev: false
     engines:
       node: '>=4'
     resolution:
@@ -3222,6 +3135,7 @@ packages:
     resolution:
       integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==
   /util-deprecate/1.0.2:
+    dev: false
     resolution:
       integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
   /util/0.10.3:
@@ -3267,25 +3181,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-9ZUuEFN9nW64VLirfO8BsvwU5a8=
-  /vinyl-sourcemaps-apply/0.2.1:
-    dependencies:
-      source-map: 0.5.7
-    dev: true
-    resolution:
-      integrity: sha1-q2VJ1h0XLCsbh75cUI0jnI74dwU=
-  /vinyl/2.2.0:
-    dependencies:
-      clone: 2.1.2
-      clone-buffer: 1.0.0
-      clone-stats: 1.0.0
-      cloneable-readable: 1.1.3
-      remove-trailing-separator: 1.1.0
-      replace-ext: 1.0.0
-    dev: true
-    engines:
-      node: '>= 0.10'
-    resolution:
-      integrity: sha512-MBH+yP0kC/GQ5GwBqrTPTzEfiiLjta7hTtvQtbxBgTeSXsmKQRQecjibMbxIXzVT3Y9KJK+drOz1/k+vsu8Nkg==
   /vkey/0.0.3:
     dev: false
     resolution:
@@ -3525,7 +3420,6 @@ packages:
     dev: false
     name: aabb-3d
     resolution:
-      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/andyhall/aabb-3d/tar.gz/6b0fb3ce72d4e8e5e8fb3e4b3581a194d952b8fa'
     version: 0.2.1
   github.com/andyhall/game-shell/5cd78b52c6abb5cc250340c635ea79040b56c966:
@@ -3539,20 +3433,37 @@ packages:
     dev: false
     name: game-shell
     resolution:
-      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/andyhall/game-shell/tar.gz/5cd78b52c6abb5cc250340c635ea79040b56c966'
     version: 1.3.2
+  github.com/andyhall/noa/6e481cfae0e39e1b3d9f5c89897da647c7d280f2:
+    dependencies:
+      aabb-3d: github.com/andyhall/aabb-3d/6b0fb3ce72d4e8e5e8fb3e4b3581a194d952b8fa
+      box-intersect: 1.0.2
+      ent-comp: 0.9.1
+      fast-voxel-raycast: 0.1.1
+      game-inputs: 0.4.0
+      game-shell: github.com/andyhall/game-shell/5cd78b52c6abb5cc250340c635ea79040b56c966
+      gl-vec3: 1.1.3
+      ndarray: 1.0.19
+      voxel-aabb-sweep: 0.5.0
+      voxel-physics-engine: 0.10.0
+    dev: false
+    name: noa-engine
+    peerDependencies:
+      '@babylonjs/core': ^4.0.0
+    resolution:
+      tarball: 'https://codeload.github.com/andyhall/noa/tar.gz/6e481cfae0e39e1b3d9f5c89897da647c7d280f2'
+    version: 0.29.0
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   '@babylonjs/core': ^4.1.0
   centra: 'github:Heath123/centra#master'
-  google-closure-compiler: ^20200406.0.0
   minecraft-data: ^2.46.0
   minecraft-protocol: 'github:Heath123/node-minecraft-protocol#master'
   net-browserify: ^0.2.4
-  noa-engine: ^0.28.0
+  noa-engine: 'github:andyhall/noa#develop'
   prismarine-chunk: ^1.14.0
   protodef: 'github:ProtoDef-io/node-protodef#master'
   webpack: ^4.43.0
