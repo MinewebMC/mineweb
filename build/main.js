@@ -4,7 +4,7 @@ const mineweb = new Mineweb(hhost.split(":")[0], hhost.split(":")[1]);
 // import { setup } from "./setup.js";
 // setup();
 
-console.log("Mineweb version dev-newchunkload2times16"); // In the dev version we can put some random letters here to make sure it built properly, maybe, and do it properly in the snapshot
+console.log("Mineweb version dev-newchunkload3sixteen"); // In the dev version we can put some random letters here to make sure it built properly, maybe, and do it properly in the snapshot
 
 const username = prompt("Please choose a username");
 console.log("Starting with username: " + username);

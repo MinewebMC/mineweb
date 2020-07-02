@@ -42,7 +42,7 @@ export function init(mineweb) {
         mineweb._noa.world._chunkIDsToRequest.push(`${packet.z}|${y}|${packet.x}`); 
       } */
       console.log(`${packet.z}|${y}|${packet.x}`);
-      mineweb._noa.world.manuallyLoadChunk(packet.z, y, packet.x);
+      mineweb._noa.world.manuallyLoadChunk(packet.z * 16, y * 16, packet.x * 16);
     }
   });
 
