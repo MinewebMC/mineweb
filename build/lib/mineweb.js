@@ -9,7 +9,7 @@ import { setEventInputs } from "./inputs.js";
 var Vec3 = require("vec3").Vec3;
 
 export class Mineweb {
-  constructor(host) {
+  constructor(host, port) {
     this._noaOpts = {
       debug: true,
       showFPS: true, // show fps false is better
@@ -27,7 +27,7 @@ export class Mineweb {
 
     this._clientOpts = {
       host: host,
-      port: 25565,
+      port: port,
       version: "1.12.2"
     };
 
