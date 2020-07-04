@@ -38,7 +38,7 @@ export function init(mineweb) {
   const chatInput = document.querySelector('#chatinput');
 
   const chatHistory = []
-  const chatHistoryPos = 0
+  let chatHistoryPos = 0
   
   // Show chat
   chat.style.display = "block";
@@ -50,6 +50,12 @@ export function init(mineweb) {
     e = e || window.event;
     if (e.keyCode === 27 || e.key === "Escape" || e.key === "Esc") {
       disableChat();
+    } else if (e.keyCode === 38) {
+      if (chatHistoryPos === 0) return;
+      chatInput.value = chatHistory[--chatHistoryPos] !== undefined ? chatHistory[chatHistoryPos] : "";
+    } else if (e.keyCode === 40) {
+      if (chatHistoryPos === chatHistory.length) return;
+      chatInput.value = chatHistory[++chatHistoryPos] !== undefined ? chatHistory[chatHistoryPos] : "";
     }
   };
 
@@ -59,10 +65,13 @@ export function init(mineweb) {
     if (e.code === "KeyT" && inChat === false) {
       enableChat();
       return false;
-    } else if (e.code === "Enter") {
-      if (!inChat) return;
+    }
+
+    if (!inChat) return;
+    if (e.code === "Enter") {
+      chatHistory.push(chatInput.value)
       mineweb._client.write("chat", {
-        message: document.getElementById("chatinput").value
+        message: chatInput.value
       });
       disableChat();
     }
@@ -85,10 +94,11 @@ export function init(mineweb) {
     // Exit the pointer lock
     document.exitPointerLock();
     // Show chat input
-    document.getElementById("chatinput").style.display = "block";
-    document.getElementById("chatinput").focus();
+    chatInput.style.display = "block";
+    chatInput.focus();
     // Disable controls
     mineweb._noa.inputs.disabled = true;
+    chatHistoryPos = chatHistory.length
   }
   function disableChat() {
     // Set inChat value
@@ -105,11 +115,11 @@ export function init(mineweb) {
   }
   function hideChat() {
     // Clear chat input
-    document.getElementById("chatinput").value = "";
+    chatInput.value = "";
     // Unfocus it
-    document.getElementById("chatinput").blur();
+    chatInput.blur();
     // Hide it
-    document.getElementById("chatinput").style.display = "none";
+    chatInput.style.display = "none";
   }
 
   function readExtra(extra) {
@@ -174,7 +184,6 @@ export function init(mineweb) {
       //   color: undefined
       // });
     }
-    var ul = chat;
     var li = document.createElement("li");
     msglist.forEach(msg => {
       var span = document.createElement("span");
@@ -189,7 +198,7 @@ export function init(mineweb) {
       );
       li.appendChild(span);
     });
-    ul.appendChild(li);
-    ul.scrollTop = ul.scrollHeight; // Stay bottem of the list
+    chat.appendChild(li);
+    chat.scrollTop = chat.scrollHeight; // Stay bottem of the list
   });
 }

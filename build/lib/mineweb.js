@@ -120,7 +120,7 @@ export class Mineweb {
             } else {
               voxelID = 1;
             } */
-              var voxelID = getVoxelID(x + i, y + j, z + k)
+              // var voxelID = getVoxelID(x + i, y + j, z + k)
               data.set(i, j, k, voxelID);
             }
           }
