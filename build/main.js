@@ -1,6 +1,6 @@
 import { Mineweb } from "./lib/mineweb.js"
 let hhost = prompt("Host", "95.111.249.143:10000");
-const mineweb = new Mineweb(hhost.split(":")[0], hhost.split(":")[1]);
+const mineweb = new Mineweb(hhost.split(":")[0], hhost.split(":")[1]); // TODO: Default port
 // import { setup } from "./setup.js";
 // setup();
 

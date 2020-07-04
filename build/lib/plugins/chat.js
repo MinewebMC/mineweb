@@ -34,8 +34,14 @@ const dictionary = {
 }
 
 export function init(mineweb) {
+  const chat = document.querySelector('#chat');
+  const chatInput = document.querySelector('#chatinput');
+
+  const chatHistory = []
+  const chatHistoryPos = 0
+  
   // Show chat
-  document.getElementById("chat").style.display = "block";
+  chat.style.display = "block";
 
   let inChat = false;
   // Esc event - Doesnt work with onkeypress?!
@@ -168,7 +174,7 @@ export function init(mineweb) {
       //   color: undefined
       // });
     }
-    var ul = document.getElementById("chat");
+    var ul = chat;
     var li = document.createElement("li");
     msglist.forEach(msg => {
       var span = document.createElement("span");
