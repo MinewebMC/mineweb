@@ -5,6 +5,7 @@
   "main": "main.js",
   "dependencies": {
     "centra": "github:Heath123/centra#master",
+    "error-polyfill": "^0.1.2",
     "minecraft-data": "^2.46.0",
     "minecraft-protocol": "github:Heath123/node-minecraft-protocol#master",
     "net-browserify": "^0.2.4",
@@ -39,10 +40,3 @@
     "node": "10.x"
   }
 }
-
-
-
-
-
-
-
