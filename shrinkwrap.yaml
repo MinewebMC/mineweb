@@ -1,5 +1,6 @@
 dependencies:
   centra: github.com/Heath123/centra/6d0280af9f2677922cb2999ceaf5b24867b558dd
+  error-polyfill: 0.1.2
   minecraft-data: 2.46.0
   minecraft-protocol: github.com/Heath123/node-minecraft-protocol/294014491b8188ff7d8a45dc337d935b32ec5983
   net-browserify: 0.2.4
@@ -519,6 +520,10 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
+  /capability/0.2.5:
+    dev: false
+    resolution:
+      integrity: sha1-Ua2HNT8ZNv/Xfy8hx0YzpN6oiAE=
   /centra/2.4.0:
     dev: false
     resolution:
@@ -938,6 +943,14 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-MfrRBDWzIWifgq6tJj60gkAwtLNb6sQPlcFrSOflcP1aFmmruKQ2wRnze/8V6kgyz7H3FF8Npzv78mZ7XLLflg==
+  /error-polyfill/0.1.2:
+    dependencies:
+      capability: 0.2.5
+      o3: 1.0.3
+      u3: 0.1.0
+    dev: false
+    resolution:
+      integrity: sha512-8uhnXlJuhFkmIfhw2tAHtWQGpXcw5rrc0dhuY3bhn8tBHvh6l0oL9VJvR2suqx9eltglKKhVPv8luPQy+UxLTA==
   /escape-html/1.0.3:
     dev: false
     resolution:
@@ -2120,6 +2133,12 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-NakjLfo11wZ7TLLd8jV7GHFTbF8=
+  /o3/1.0.3:
+    dependencies:
+      capability: 0.2.5
+    dev: false
+    resolution:
+      integrity: sha1-GSzod6iC36Z1HwQSqGX6+y2h2sA=
   /object-assign/4.1.1:
     dev: false
     engines:
@@ -3054,6 +3073,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+  /u3/0.1.0:
+    dev: false
+    resolution:
+      integrity: sha1-AGCSdmO2g1PFOc2pnpUR1mh+3Z0=
   /uint4/0.1.2:
     dev: false
     resolution:
@@ -3420,6 +3443,7 @@ packages:
     dev: false
     name: aabb-3d
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/andyhall/aabb-3d/tar.gz/6b0fb3ce72d4e8e5e8fb3e4b3581a194d952b8fa'
     version: 0.2.1
   github.com/andyhall/game-shell/5cd78b52c6abb5cc250340c635ea79040b56c966:
@@ -3433,6 +3457,7 @@ packages:
     dev: false
     name: game-shell
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/andyhall/game-shell/tar.gz/5cd78b52c6abb5cc250340c635ea79040b56c966'
     version: 1.3.2
   github.com/andyhall/noa/6e481cfae0e39e1b3d9f5c89897da647c7d280f2:
@@ -3452,6 +3477,7 @@ packages:
     peerDependencies:
       '@babylonjs/core': ^4.0.0
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/andyhall/noa/tar.gz/6e481cfae0e39e1b3d9f5c89897da647c7d280f2'
     version: 0.29.0
 registry: 'https://registry.npmjs.org/'
@@ -3460,6 +3486,7 @@ shrinkwrapVersion: 3
 specifiers:
   '@babylonjs/core': ^4.1.0
   centra: 'github:Heath123/centra#master'
+  error-polyfill: ^0.1.2
   minecraft-data: ^2.46.0
   minecraft-protocol: 'github:Heath123/node-minecraft-protocol#master'
   net-browserify: ^0.2.4
